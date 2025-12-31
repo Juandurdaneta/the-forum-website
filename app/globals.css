@@ -21,65 +21,67 @@
   --font-body: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* Base styles */
-html {
-  scroll-behavior: smooth;
-}
+@layer base {
+  /* Base styles */
+  html {
+    scroll-behavior: smooth;
+  }
 
-body {
-  background: var(--color-background);
-  color: var(--color-foreground);
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-/* Font utility classes */
-.font-heading {
-  font-family: var(--font-heading);
-}
+  /* Font utility classes */
+  .font-heading {
+    font-family: var(--font-heading);
+  }
 
-.font-body {
-  font-family: var(--font-body);
-}
+  .font-body {
+    font-family: var(--font-body);
+  }
 
-/* Heading styles */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  line-height: 1.2;
-}
+  /* Heading styles */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.2;
+  }
 
-/* Selection */
-::selection {
-  background: var(--color-brand-peach);
-  color: var(--color-brand-black);
-}
+  /* Selection */
+  ::selection {
+    background: var(--color-brand-peach);
+    color: var(--color-brand-black);
+  }
 
-/* Focus styles */
-:focus-visible {
-  outline: 2px solid var(--color-brand-bronze);
-  outline-offset: 2px;
-}
+  /* Focus styles */
+  :focus-visible {
+    outline: 2px solid var(--color-brand-bronze);
+    outline-offset: 2px;
+  }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
 
-::-webkit-scrollbar-track {
-  background: var(--color-muted);
-}
+  ::-webkit-scrollbar-track {
+    background: var(--color-muted);
+  }
 
-::-webkit-scrollbar-thumb {
-  background: var(--color-brand-slate);
-  border-radius: 4px;
-}
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-brand-slate);
+    border-radius: 4px;
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-brand-bronze);
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-brand-bronze);
+  }
 }
 
 /* Animation utilities */
