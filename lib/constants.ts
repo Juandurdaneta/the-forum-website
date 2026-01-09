@@ -164,60 +164,47 @@ export const FINAL_CTA = {
 
 export const PRICING_TIERS = [
   {
-    name: "Creator",
-    price: "$997",
+    name: "Monthly",
+    price: "$550",
     period: "/month",
-    quarterly: "$2,697 quarterly (save $300)",
-    bestFor: "Consistent content creators ready to establish their rhythm",
+    commitment: "Month to month",
+    bestFor: "Try it out with full flexibility",
     popular: false,
     features: [
-      "2 Studio Sessions Monthly (2 hours each)",
-      "Full post-production editing & mastering",
+      "6 hours of studio time per month",
       "Multi-platform content delivery",
-      "Monthly content strategy session (30 min)",
-      "Member community access + events",
-      "Cloud storage for all content",
-      "Priority booking",
-      "Guest coordination support",
+      
     ],
-    output: "4-6 podcast episodes OR 8-12 YouTube videos OR 20-30 social clips",
+    additionalHours: "$50/hour",
   },
   {
-    name: "Authority",
-    price: "$1,697",
+    name: "6-Month",
+    price: "$497",
     period: "/month",
-    quarterly: "$4,597 quarterly (save $500)",
-    bestFor: "Ambitious creators building multi-platform presence",
+    commitment: "6 month commitment",
+    bestFor: "Best value for committed creators",
     popular: true,
     features: [
-      "4 Studio Sessions Monthly (2 hours each)",
-      "Extended strategy sessions (60 min monthly)",
-      "Content calendar planning & management",
-      "Platform upload assistance (we post for you)",
-      "Guest sourcing & booking coordination",
-      "Dedicated Slack channel",
-      "Quarterly content performance review",
+      "6 hours of studio time per month",
+      "Multi-platform content delivery",
+   
     ],
-    includedFrom: "Everything in Creator, PLUS:",
-    output: "8-12 podcast episodes OR 16-24 YouTube videos OR 40-60 social clips",
-    bonus: "First month includes brand consultation ($500 value)",
+    additionalHours: "$50/hour",
+    savings: "Save $318 over monthly",
   },
   {
-    name: "Enterprise",
-    price: "Custom",
-    period: "",
-    bestFor: "Brands, agencies, or high-volume creators",
+    name: "Annual",
+    price: "$450",
+    period: "/month",
+    commitment: "12 month commitment",
+    bestFor: "Maximum savings for serious creators",
     popular: false,
     features: [
-      "Unlimited Studio Sessions",
-      "Dedicated production team",
-      "Multi-person recording capability",
-      "Advanced editing (motion graphics, animations)",
-      "White-label content production",
-      "Priority 24/7 support",
-      "Custom content strategies & campaigns",
+      "6 hours of studio time per month",
+      "Multi-platform content delivery",
     ],
-    includedFrom: "Everything in Authority, PLUS:",
+    additionalHours: "$50/hour",
+    savings: "Save $1,200 over monthly",
   },
 ]
 
@@ -234,16 +221,14 @@ export const FOUNDING_MEMBER = {
 }
 
 export const COMPARISON_TABLE = {
-  headers: ["Feature", "Creator", "Authority", "Enterprise"],
+  headers: ["Feature", "Monthly", "6-Month", "Annual"],
   rows: [
-    ["Studio Sessions/Month", "2 sessions", "4 sessions", "Unlimited"],
-    ["Recording Time", "4 hours", "8 hours", "Custom"],
-    ["Post-Production", "✓ Included", "✓ Included", "✓ Advanced"],
-    ["Strategy Sessions", "30 min monthly", "60 min monthly", "Custom"],
-    ["Platform Upload", "Self-serve", "Done-for-you", "Done-for-you"],
+    ["Studio Time", "6 hours", "6 hours", "6 hours"],
+    ["Price", "$550/mo", "$497/mo", "$450/mo"],
+    ["Commitment", "None", "6 months", "12 months"],
+    ["Additional Hours", "$50/hour", "$50/hour", "$50/hour"],
     ["Community Access", "✓", "✓", "✓"],
-    ["Guest Coordination", "Support", "Full-service", "Full-service"],
-    ["Dedicated Support", "Email", "Slack channel", "24/7 Priority"],
+    ["Priority Booking", "✓", "✓", "✓"],
   ],
 }
 
@@ -272,12 +257,7 @@ export const ADD_ONS = [
     price: "Custom pricing",
     description: "Bring our mobile studio to your event or conference",
   },
-  {
-    icon: "GraduationCap",
-    title: "Content Strategy Intensive",
-    price: "$1,500 one-time",
-    description: "Deep-dive 3-hour session: audit your content, build 6-month roadmap",
-  },
+  
 ]
 
 export const FAQ_PRICING = [
@@ -285,10 +265,7 @@ export const FAQ_PRICING = [
     question: "What happens if I miss a session?",
     answer: "Sessions roll over to the following month within your membership period. We understand life happens—flexibility is built in.",
   },
-  {
-    question: "Can I upgrade or downgrade my membership?",
-    answer: "Absolutely. Adjust anytime with 30 days notice. Most members start with Creator and scale up as their content grows.",
-  },
+  
   {
     question: "Do I own the content we create?",
     answer: "100%. You own all raw footage, edited content, and have full rights to use it however you want.",

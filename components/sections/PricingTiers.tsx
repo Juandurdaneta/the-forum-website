@@ -81,7 +81,7 @@ export function PricingTiers() {
             Choose Your Creative Rhythm
           </h1>
           <p className="text-xl text-brand-slate">
-            All memberships include studio access, professional equipment, post-production editing, and community access. The only difference? How often you record.
+            All memberships include studio access, professional equipment and community access.
           </p>
         </motion.div>
 
@@ -96,7 +96,7 @@ export function PricingTiers() {
           </Link>
         </motion.div>
 
-        <FoundingMemberBanner />
+        {/* <FoundingMemberBanner /> */}
 
         <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {PRICING_TIERS.map((tier, index) => (
@@ -124,7 +124,7 @@ export function PricingTiers() {
                     </h3>
                     <p className="text-sm text-brand-slate mt-1">{tier.bestFor}</p>
                   </div>
-                  
+
                   <div className="flex items-baseline gap-1">
                     <span className="font-heading text-4xl font-bold text-brand-black">
                       {tier.price}
@@ -133,19 +133,17 @@ export function PricingTiers() {
                       <span className="text-brand-slate">{tier.period}</span>
                     )}
                   </div>
-                  
-                  {tier.quarterly && (
-                    <p className="text-sm text-brand-slate mt-2">{tier.quarterly}</p>
+
+                  {tier.commitment && (
+                    <p className="text-sm text-brand-slate mt-2">{tier.commitment}</p>
+                  )}
+
+                  {tier.savings && (
+                    <p className="text-sm text-brand-bronze font-medium mt-1">{tier.savings}</p>
                   )}
                 </CardHeader>
                 
                 <CardContent className="space-y-4">
-                  {tier.includedFrom && (
-                    <p className="text-sm font-medium text-brand-bronze">
-                      {tier.includedFrom}
-                    </p>
-                  )}
-                  
                   <ul className="space-y-3">
                     {tier.features.map((feature, i) => (
                       <li key={i} className="flex items-start gap-2">
@@ -154,31 +152,23 @@ export function PricingTiers() {
                       </li>
                     ))}
                   </ul>
-                  
-                  {tier.output && (
+
+                  {tier.additionalHours && (
                     <div className="pt-4 border-t border-border">
-                      <p className="text-xs text-brand-slate">
-                        <strong className="text-brand-black">Typical Output:</strong> {tier.output}
-                      </p>
-                    </div>
-                  )}
-                  
-                  {tier.bonus && (
-                    <div className="bg-brand-peach/30 rounded-lg p-3">
-                      <p className="text-sm text-brand-black font-medium">
-                        <Gift className="w-4 h-4 inline mr-1 text-brand-bronze" />
-                        {tier.bonus}
+                      <p className="text-sm text-brand-slate">
+                        <strong className="text-brand-black">Additional hours:</strong> {tier.additionalHours}
                       </p>
                     </div>
                   )}
                 </CardContent>
                 
                 <CardFooter className="flex flex-col gap-3">
-                  <Button className="w-full" variant={tier.popular ? "default" : "outline"} asChild>
-                    <Link href="#blueprint">Start With The Blueprint</Link>
-                  </Button>
+
                   <Button variant="ghost" className="w-full" asChild>
                     <Link href="/contact">Book a Studio Tour</Link>
+                  </Button>
+                  <Button className="w-full" variant={tier.popular ? "default" : "outline"} asChild>
+                    <Link href="#blueprint">Start With The Blueprint</Link>
                   </Button>
                 </CardFooter>
               </Card>

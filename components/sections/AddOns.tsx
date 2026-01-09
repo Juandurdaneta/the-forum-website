@@ -38,7 +38,7 @@ export function AddOns() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {ADD_ONS.map((addon, index) => {
             const Icon = iconMap[addon.icon as keyof typeof iconMap];
             return (
