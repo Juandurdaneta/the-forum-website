@@ -32,7 +32,7 @@ export function Footer() {
           {/* Logo & Tagline */}
           <div className="space-y-4">
             <Logo variant="light" />
-            <p className="text-brand-slate text-sm leading-relaxed mt-4">
+            <p className="text-brand-slate text-sm leading-relaxed mt-0 w-44">
               {SITE_CONFIG.tagline}
             </p>
             <div className="flex gap-4 mt-6">
@@ -109,9 +109,7 @@ export function Footer() {
             <h4 className="font-heading text-lg font-semibold mb-4">
               Stay Updated
             </h4>
-            <p className="text-brand-slate text-sm mb-4">
-              Get studio insights and content tips delivered to your inbox.
-            </p>
+           
             <form onSubmit={handleNewsletterSubmit} className="space-y-3">
               <Input
                 type="email"

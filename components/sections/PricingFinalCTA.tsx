@@ -22,7 +22,7 @@ export function PricingFinalCTA() {
             transition={{ duration: 0.6 }}
             className="font-heading text-4xl md:text-5xl font-semibold text-white mb-6"
           >
-            Start With Strategy. Scale With The Studio.
+            Start With Strategy. Scale With Our Studio.
           </motion.h2>
 
           <motion.p
@@ -31,7 +31,7 @@ export function PricingFinalCTA() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-lg text-brand-slate mb-10 leading-relaxed"
           >
-            Not ready to commit? Smart. Download The Studio-Ready Content Blueprint, plan your content strategy, and see if this model fits your goals. When you&apos;re ready, we&apos;ll be here.
+            Not ready to commit? Download The Studio-Ready Content Blueprint, plan your content strategy, and see if this model fits your goals.
           </motion.p>
 
           <motion.div

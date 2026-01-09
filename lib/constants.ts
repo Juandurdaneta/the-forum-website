@@ -265,14 +265,13 @@ export const FAQ_PRICING = [
     question: "What happens if I miss a session?",
     answer: "Sessions roll over to the following month within your membership period. We understand life happens—flexibility is built in.",
   },
-  
+  {
+    question: "How will I know how to use the equipment?",
+    answer: "There is an onboarding session included at the start of your membership.",
+  },
   {
     question: "Do I own the content we create?",
     answer: "100%. You own all raw footage, edited content, and have full rights to use it however you want.",
-  },
-  {
-    question: "What if I need to cancel?",
-    answer: "No long-term contracts. Cancel anytime with 30 days notice. Founding members who stay active keep their locked rate forever.",
   },
   {
     question: "Can I bring a co-host or guest?",
