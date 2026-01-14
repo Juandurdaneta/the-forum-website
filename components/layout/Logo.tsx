@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 interface LogoProps {
   variant?: "dark" | "light";
@@ -6,22 +7,17 @@ interface LogoProps {
 }
 
 export function Logo({ variant = "dark", className = "" }: LogoProps) {
-  const textColor = variant === "dark" ? "text-brand-black" : "text-white";
-
   return (
     <Link href="/" className={`inline-block ${className}`}>
-      <div className="flex flex-col items-center">
-        <span
-          className={`text-[10px] tracking-[0.4em] font-body font-medium ${textColor} mb-0.5`}
-        >
-          T H E
-        </span>
-        <span
-          className={`font-heading text-3xl font-semibold tracking-wide ${textColor}`}
-          style={{ fontFeatureSettings: '"liga" 1, "kern" 1' }}
-        >
-          FORUM
-        </span>
+      <div className="w-[140px] h-[45px] overflow-hidden flex items-center justify-center">
+        <Image
+          src="/images/logo.png"
+          alt="The Forum"
+          width={280}
+          height={120}
+          className={`scale-[1.8] ${variant === "light" ? "brightness-0 invert" : ""}`}
+          priority
+        />
       </div>
     </Link>
   );
