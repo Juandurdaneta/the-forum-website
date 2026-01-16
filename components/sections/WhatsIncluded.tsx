@@ -5,7 +5,8 @@ import Link from "next/link";
 import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { WHATS_INCLUDED } from "@/lib/constants";
-import { Mic, Wand2, Calendar, Target } from "lucide-react";
+import { Mic, Wand2, Calendar, Target, Sparkles } from "lucide-react";
+import Image from "next/image";
 
 const iconMap = {
   Mic: Mic,
@@ -14,14 +15,25 @@ const iconMap = {
   Target: Target,
 };
 
-// Greek ornament divider
-function GreekOrnament() {
+// Greek Key Border Pattern Component - matches branding kit
+function GreekKeyBorder({ className = "", color = "currentColor" }: { className?: string; color?: string }) {
   return (
-    <svg className="w-24 h-6 text-brand-terracotta mx-auto" viewBox="0 0 96 24" fill="none">
-      <path d="M0 12h36" stroke="currentColor" strokeWidth="1" />
-      <path d="M60 12h36" stroke="currentColor" strokeWidth="1" />
-      <circle cx="48" cy="12" r="6" stroke="currentColor" strokeWidth="1.5" fill="none" />
-      <circle cx="48" cy="12" r="2" fill="currentColor" />
+    <svg
+      className={className}
+      viewBox="0 0 120 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="xMidYMid slice"
+    >
+      <defs>
+        <pattern id="greekKeyPattern" x="0" y="0" width="30" height="24" patternUnits="userSpaceOnUse">
+          <path
+            d="M0 20V4h4v12h8V4h4v16h-4V8H8v12H0z"
+            fill={color}
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#greekKeyPattern)" />
     </svg>
   );
 }
@@ -31,92 +43,122 @@ export function WhatsIncluded() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 bg-brand-terracotta relative overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-gold/10 rounded-full blur-3xl" />
+    <section className="relative overflow-hidden">
+      {/* Two-tone background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-brand-cream" />
+        <div className="absolute top-0 left-0 w-full lg:w-1/3 h-full bg-brand-terracotta" />
+      </div>
 
-      {/* Subtle texture overlay */}
-      <div className="absolute inset-0 opacity-[0.03] roman-pattern" />
-
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative" ref={ref}>
-        {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-8"
-        >
-          <span className="text-brand-cream font-medium text-sm tracking-[0.2em] uppercase mb-4 block">
-            Membership Benefits
-          </span>
-          <h2 className="font-heading text-4xl md:text-5xl font-semibold text-white mb-4">
-            {WHATS_INCLUDED.title}
-          </h2>
-          <p className="text-xl text-brand-cream/90">{WHATS_INCLUDED.subtitle}</p>
-        </motion.div>
-
-        {/* Intro paragraph */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-lg text-brand-cream/80 text-center max-w-3xl mx-auto mb-16 leading-relaxed"
-        >
-          {WHATS_INCLUDED.intro}
-        </motion.p>
-
-        {/* Features grid with medallion-style icons */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {WHATS_INCLUDED.features.map((feature, index) => {
-            const Icon = iconMap[feature.icon as keyof typeof iconMap];
-            return (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-brand-cream/95 p-6 border border-brand-terracotta-dark/20 hover:bg-white transition-all duration-300 card-lift relative"
-              >
-                {/* Decorative corner elements */}
-                <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-brand-terracotta/60" />
-                <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-brand-terracotta/60" />
-                <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-brand-terracotta/60" />
-                <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-brand-terracotta/60" />
-
-                {/* Medallion-style icon container */}
-                <div className="relative w-16 h-16 mx-auto mb-5">
-                  <div className="absolute inset-0 border-2 border-brand-terracotta rounded-full" />
-                  <div className="absolute inset-2 border border-brand-terracotta/50 rounded-full" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    {Icon && <Icon className="w-7 h-7 text-brand-terracotta" />}
-                  </div>
-                </div>
-
-                <h3 className="font-heading text-xl font-semibold text-brand-black mb-2 text-center">
-                  {feature.title}
-                </h3>
-                <p className="text-brand-slate text-sm leading-relaxed text-center">
-                  {feature.description}
-                </p>
-              </motion.div>
-            );
-          })}
+      {/* Greek Key Border - Top */}
+      <div className="absolute top-0 left-0 right-0 h-6 bg-brand-cream overflow-hidden">
+        <div className="w-full h-full flex items-center justify-center">
+          <GreekKeyBorder className="w-full h-5 text-brand-terracotta/20" color="#C47A2B33" />
         </div>
+      </div>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-12"
-        >
-          <Button size="lg" asChild className="rounded-none bg-white text-brand-terracotta hover:bg-brand-cream border-2 border-white">
-            <Link href="#blueprint">
-              Get The Free Content Blueprint
-            </Link>
-          </Button>
-        </motion.div>
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative py-24 lg:py-32" ref={ref}>
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+          {/* Left Column - Header on terracotta */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7 }}
+            className="lg:col-span-4 relative z-10"
+          >
+            <div className="lg:pr-8">
+              <span className="inline-flex items-center gap-2 text-white/90 font-medium text-sm tracking-[0.2em] uppercase mb-6">
+                <Sparkles className="w-4 h-4" />
+                Membership Benefits
+              </span>
+
+              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-6 leading-[1.1]">
+                {WHATS_INCLUDED.title}
+              </h2>
+
+              <p className="text-xl text-white/90 mb-8 leading-relaxed">
+                {WHATS_INCLUDED.subtitle}
+              </p>
+
+              <p className="text-white/70 leading-relaxed mb-8 hidden lg:block">
+                {WHATS_INCLUDED.intro}
+              </p>
+
+              <Button
+                size="lg"
+                asChild
+                className="bg-white text-brand-terracotta hover:bg-brand-cream border-0 shadow-xl hover:shadow-2xl transition-all duration-300"
+              >
+                <Link href="#blueprint">
+                  Get Started Free
+                </Link>
+              </Button>
+            </div>
+          </motion.div>
+
+          {/* Right Column - Feature Cards */}
+          <div className="lg:col-span-8">
+            {/* Mobile intro text */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-brand-slate leading-relaxed mb-8 lg:hidden"
+            >
+              {WHATS_INCLUDED.intro}
+            </motion.p>
+
+            {/* Features Grid - 2x2 layout */}
+            <div className="grid sm:grid-cols-2 gap-5">
+              {WHATS_INCLUDED.features.map((feature, index) => {
+                const Icon = iconMap[feature.icon as keyof typeof iconMap];
+                return (
+                  <motion.div
+                    key={feature.title}
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.15 + index * 0.1 }}
+                    className="group relative"
+                  >
+                    <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-brand-terracotta/10 hover:border-brand-terracotta/30 h-full overflow-hidden">
+                      {/* Hover gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-brand-terracotta/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+
+                      {/* Icon with animated background */}
+                      <div className="relative mb-6">
+                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-terracotta to-brand-terracotta-dark flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500">
+                          {Icon && <Icon className="w-8 h-8 text-white" strokeWidth={1.5} />}
+                        </div>
+                        {/* Decorative ring */}
+                        <div className="absolute -inset-2 border-2 border-brand-terracotta/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      </div>
+
+                      <h3 className="font-heading text-2xl font-semibold text-brand-black mb-3 group-hover:text-brand-terracotta transition-colors duration-300">
+                        {feature.title}
+                      </h3>
+
+                      <p className="text-brand-slate leading-relaxed relative z-10">
+                        {feature.description}
+                      </p>
+
+                      {/* Corner accent */}
+                      <div className="absolute bottom-0 right-0 w-20 h-20 overflow-hidden">
+                        <div className="absolute bottom-0 right-0 w-40 h-40 bg-brand-terracotta/5 rounded-full transform translate-x-1/2 translate-y-1/2 group-hover:scale-150 transition-transform duration-700" />
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Greek Key Border - Bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-6 bg-brand-cream overflow-hidden">
+        <div className="w-full h-full flex items-center justify-center">
+          <GreekKeyBorder className="w-full h-5 text-brand-terracotta/20" color="#C47A2B33" />
+        </div>
       </div>
     </section>
   );

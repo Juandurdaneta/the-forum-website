@@ -1,0 +1,5 @@
+<svg width="48" height="24" viewBox="0 0 48 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Classic Greek Key Border Pattern -->
+  <path d="M0 20V4h4v12h8V4h4v16h-4V8H8v12H0z" fill="currentColor"/>
+  <path d="M24 20V4h4v12h8V4h4v16h-4V8h-8v12h-4z" fill="currentColor"/>
+</svg>
