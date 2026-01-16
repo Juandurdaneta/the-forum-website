@@ -130,11 +130,6 @@ export function FinalCTA() {
           </motion.div>
         </div>
       </div>
-
-      {/* Greek key border bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-10 overflow-hidden z-10">
-        <GreekKeyBorder className="w-full h-full" id="finalCtaMeander" />
-      </div>
     </section>
   );
 }

@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { GreekKeyBorder } from "@/components/ui/MeanderPattern";
 import { HERO_CONTENT } from "@/lib/constants";
 import { ArrowRight, Play, Mic, Video, Users, Sparkles } from "lucide-react";
 
@@ -225,11 +224,6 @@ export function Hero() {
             ))}
           </div>
         </div>
-      </div>
-
-      {/* Greek Key Border - Bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-10 overflow-hidden z-20">
-        <GreekKeyBorder className="w-full h-full" id="heroMeander" />
       </div>
 
       {/* Scroll indicator */}
