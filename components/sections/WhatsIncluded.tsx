@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
+import { MeanderBorder } from "@/components/ui/MeanderPattern";
 import { WHATS_INCLUDED } from "@/lib/constants";
 import { Mic, Wand2, Calendar, Target, Sparkles } from "lucide-react";
 import Image from "next/image";
@@ -14,29 +15,6 @@ const iconMap = {
   Calendar: Calendar,
   Target: Target,
 };
-
-// Greek Key Border Pattern Component - matches branding kit
-function GreekKeyBorder({ className = "", color = "currentColor" }: { className?: string; color?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 120 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="xMidYMid slice"
-    >
-      <defs>
-        <pattern id="greekKeyPattern" x="0" y="0" width="30" height="24" patternUnits="userSpaceOnUse">
-          <path
-            d="M0 20V4h4v12h8V4h4v16h-4V8H8v12H0z"
-            fill={color}
-          />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#greekKeyPattern)" />
-    </svg>
-  );
-}
 
 export function WhatsIncluded() {
   const ref = useRef(null);
@@ -53,7 +31,7 @@ export function WhatsIncluded() {
       {/* Greek Key Border - Top */}
       <div className="absolute top-0 left-0 right-0 h-6 bg-brand-cream overflow-hidden">
         <div className="w-full h-full flex items-center justify-center">
-          <GreekKeyBorder className="w-full h-5 text-brand-terracotta/20" color="#C47A2B33" />
+          <MeanderBorder className="w-full h-full" id="whatsIncludedMeander" opacity={0.2} />
         </div>
       </div>
 
@@ -157,7 +135,7 @@ export function WhatsIncluded() {
       {/* Greek Key Border - Bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-6 bg-brand-cream overflow-hidden">
         <div className="w-full h-full flex items-center justify-center">
-          <GreekKeyBorder className="w-full h-5 text-brand-terracotta/20" color="#C47A2B33" />
+          <MeanderBorder className="w-full h-full" id="whatsIncludedMeander" opacity={0.2} />
         </div>
       </div>
     </section>

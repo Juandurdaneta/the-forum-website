@@ -3,35 +3,12 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { MeanderBorder } from "@/components/ui/MeanderPattern";
 import { Input } from "@/components/ui/Input";
 import { Select } from "@/components/ui/Select";
 import { LEAD_MAGNET } from "@/lib/constants";
 import { toast } from "@/components/ui/Toaster";
 import { Check, FileText, Sparkles, Download, ArrowRight } from "lucide-react";
-
-// Greek Key Border Pattern
-function GreekKeyBorder({ className = "", color = "#C47A2B" }: { className?: string; color?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 120 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="xMidYMid slice"
-    >
-      <defs>
-        <pattern id="leadMagnetGreekKey" x="0" y="0" width="30" height="24" patternUnits="userSpaceOnUse">
-          <path
-            d="M0 20V4h4v12h8V4h4v16h-4V8H8v12H0z"
-            fill={color}
-            fillOpacity="0.15"
-          />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#leadMagnetGreekKey)" />
-    </svg>
-  );
-}
 
 export function LeadMagnet() {
   const ref = useRef(null);
@@ -94,7 +71,7 @@ export function LeadMagnet() {
 
       {/* Greek Key Border - Top */}
       <div className="absolute top-0 left-0 right-0 h-6 overflow-hidden z-10">
-        <GreekKeyBorder className="w-full h-full" color="#FAF5EE" />
+        <MeanderBorder className="w-full h-full" id="leadMagnetMeander" strokeColor="#FAF5EE" />
       </div>
 
       {/* Animated gradient orbs */}
@@ -257,7 +234,7 @@ export function LeadMagnet() {
 
       {/* Greek Key Border - Bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-6 overflow-hidden z-10">
-        <GreekKeyBorder className="w-full h-full" color="#FAF5EE" />
+        <MeanderBorder className="w-full h-full" id="leadMagnetMeander" strokeColor="#FAF5EE" />
       </div>
     </section>
   );

@@ -4,35 +4,12 @@ import Link from "next/link";
 import { Logo } from "./Logo";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
+import { MeanderBorder } from "@/components/ui/MeanderPattern";
 import { SITE_CONFIG, NAV_LINKS, CONTACT_INFO } from "@/lib/constants";
 import { Instagram, Mail, Phone, MapPin, ArrowRight, Sparkles } from "lucide-react";
 import { toast } from "@/components/ui/Toaster";
 import * as React from "react";
 import { motion } from "framer-motion";
-
-// Greek Key Border Pattern
-function GreekKeyBorder({ className = "", color = "#C47A2B" }: { className?: string; color?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 120 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="xMidYMid slice"
-    >
-      <defs>
-        <pattern id="footerGreekKey" x="0" y="0" width="30" height="24" patternUnits="userSpaceOnUse">
-          <path
-            d="M0 20V4h4v12h8V4h4v16h-4V8H8v12H0z"
-            fill={color}
-            fillOpacity="0.2"
-          />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#footerGreekKey)" />
-    </svg>
-  );
-}
 
 export function Footer() {
   const [email, setEmail] = React.useState("");
@@ -53,7 +30,7 @@ export function Footer() {
     <footer className="bg-brand-black text-white relative overflow-hidden">
       {/* Greek key border top */}
       <div className="absolute top-0 left-0 right-0 h-6 overflow-hidden z-10">
-        <GreekKeyBorder className="w-full h-full" />
+        <MeanderBorder className="w-full h-full" id="footerMeander" />
       </div>
 
       {/* Background orbs */}

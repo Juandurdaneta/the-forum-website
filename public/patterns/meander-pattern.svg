@@ -1,0 +1,23 @@
+<svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Art Deco Meander Pattern - Single Tile -->
+  <defs>
+    <pattern id="meanderTile" x="0" y="0" width="60" height="80" patternUnits="userSpaceOnUse">
+      <!-- Outer U-shape -->
+      <path d="M0 0 L0 50 Q0 70 20 70 L40 70 Q60 70 60 50 L60 0"
+            stroke="currentColor" stroke-width="2" fill="none"/>
+      <!-- Middle U-shape -->
+      <path d="M10 0 L10 45 Q10 60 25 60 L35 60 Q50 60 50 45 L50 0"
+            stroke="currentColor" stroke-width="2" fill="none"/>
+      <!-- Inner U-shape -->
+      <path d="M20 0 L20 40 Q20 50 30 50 Q40 50 40 40 L40 0"
+            stroke="currentColor" stroke-width="2" fill="none"/>
+      <!-- Bottom circle -->
+      <circle cx="30" cy="75" r="4" fill="currentColor"/>
+      <!-- Connecting horizontal lines at top -->
+      <line x1="0" y1="0" x2="10" y2="0" stroke="currentColor" stroke-width="2"/>
+      <line x1="20" y1="0" x2="40" y2="0" stroke="currentColor" stroke-width="2"/>
+      <line x1="50" y1="0" x2="60" y2="0" stroke="currentColor" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="120" height="80" fill="url(#meanderTile)"/>
+</svg>

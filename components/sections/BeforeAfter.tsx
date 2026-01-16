@@ -4,32 +4,9 @@ import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
+import { MeanderBorder } from "@/components/ui/MeanderPattern";
 import { BEFORE_AFTER } from "@/lib/constants";
 import { X, Check, ArrowRight, Frown, Smile } from "lucide-react";
-
-// Greek Key Border Pattern
-function GreekKeyBorder({ className = "", color = "#C47A2B" }: { className?: string; color?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 120 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="xMidYMid slice"
-    >
-      <defs>
-        <pattern id="beforeAfterGreekKey" x="0" y="0" width="30" height="24" patternUnits="userSpaceOnUse">
-          <path
-            d="M0 20V4h4v12h8V4h4v16h-4V8H8v12H0z"
-            fill={color}
-            fillOpacity="0.15"
-          />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#beforeAfterGreekKey)" />
-    </svg>
-  );
-}
 
 export function BeforeAfter() {
   const ref = useRef(null);
@@ -42,7 +19,7 @@ export function BeforeAfter() {
 
       {/* Greek Key Border - Top */}
       <div className="absolute top-0 left-0 right-0 h-6 overflow-hidden z-10">
-        <GreekKeyBorder className="w-full h-full" />
+        <MeanderBorder className="w-full h-full" id="beforeAfterMeander" />
       </div>
 
       {/* Animated gradient orbs */}
@@ -192,7 +169,7 @@ export function BeforeAfter() {
 
       {/* Greek Key Border - Bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-6 overflow-hidden z-10">
-        <GreekKeyBorder className="w-full h-full" />
+        <MeanderBorder className="w-full h-full" id="beforeAfterMeander" />
       </div>
     </section>
   );
