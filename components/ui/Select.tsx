@@ -28,7 +28,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           <select
             id={selectId}
             className={cn(
-              "flex h-12 w-full appearance-none border border-brand-terracotta/30 bg-white px-4 py-3 pr-10 text-base text-brand-black transition-all duration-200",
+              "flex h-12 w-full appearance-none rounded-xl border border-brand-terracotta/20 bg-white px-4 py-3 pr-10 text-base text-brand-black transition-all duration-200 shadow-sm",
               "focus:outline-none focus:ring-2 focus:ring-brand-terracotta/50 focus:border-brand-terracotta",
               "disabled:cursor-not-allowed disabled:opacity-50",
               error && "border-red-500 focus:ring-red-500",

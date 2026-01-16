@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
 import { Button } from "@/components/ui/Button";
 import { NAV_LINKS } from "@/lib/constants";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Header() {
@@ -33,7 +33,7 @@ export function Header() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-sm py-3"
+            ? "bg-white/95 backdrop-blur-md shadow-lg py-3"
             : "bg-transparent py-5"
         )}
       >
@@ -48,30 +48,42 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "text-sm font-medium tracking-wide transition-colors hover:text-brand-terracotta",
+                    "text-sm font-medium tracking-wide transition-colors hover:text-brand-terracotta relative group",
                     pathname === link.href
                       ? "text-brand-terracotta"
                       : "text-brand-black"
                   )}
                 >
                   {link.label}
+                  <span className={cn(
+                    "absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-terracotta transition-all duration-300 group-hover:w-full",
+                    pathname === link.href && "w-full"
+                  )} />
                 </Link>
               ))}
-              <Button size="sm" asChild className="rounded-none">
-                <Link href="#blueprint">Get The Blueprint</Link>
+              <Button size="sm" asChild className="rounded-full shadow-md hover:shadow-lg">
+                <Link href="#blueprint">
+                  Get The Blueprint
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </Button>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-brand-black hover:text-brand-terracotta transition-colors"
+              className={cn(
+                "md:hidden w-10 h-10 rounded-full flex items-center justify-center transition-all",
+                isMobileMenuOpen
+                  ? "bg-brand-terracotta text-white"
+                  : "bg-brand-terracotta/10 text-brand-black hover:bg-brand-terracotta/20"
+              )}
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
-                <X className="h-6 w-6" />
+                <X className="h-5 w-5" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <Menu className="h-5 w-5" />
               )}
             </button>
           </nav>
@@ -89,23 +101,38 @@ export function Header() {
             className="fixed inset-0 z-40 bg-brand-cream pt-24 md:hidden"
           >
             <nav className="flex flex-col items-center gap-6 p-8">
-              {NAV_LINKS.map((link) => (
-                <Link
+              {NAV_LINKS.map((link, index) => (
+                <motion.div
                   key={link.href}
-                  href={link.href}
-                  className={cn(
-                    "text-xl font-heading font-medium transition-colors hover:text-brand-terracotta",
-                    pathname === link.href
-                      ? "text-brand-terracotta"
-                      : "text-brand-black"
-                  )}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
                 >
-                  {link.label}
-                </Link>
+                  <Link
+                    href={link.href}
+                    className={cn(
+                      "text-xl font-heading font-medium transition-colors hover:text-brand-terracotta",
+                      pathname === link.href
+                        ? "text-brand-terracotta"
+                        : "text-brand-black"
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
-              <Button size="lg" className="mt-4 w-full max-w-xs rounded-none" asChild>
-                <Link href="#blueprint">Get The Blueprint</Link>
-              </Button>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: NAV_LINKS.length * 0.1 }}
+              >
+                <Button size="lg" className="mt-4 w-full max-w-xs rounded-full shadow-lg" asChild>
+                  <Link href="#blueprint">
+                    Get The Blueprint
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+              </motion.div>
             </nav>
           </motion.div>
         )}

@@ -5,18 +5,31 @@ import { Logo } from "./Logo";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { SITE_CONFIG, NAV_LINKS, CONTACT_INFO } from "@/lib/constants";
-import { Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Instagram, Mail, Phone, MapPin, ArrowRight, Sparkles } from "lucide-react";
 import { toast } from "@/components/ui/Toaster";
 import * as React from "react";
+import { motion } from "framer-motion";
 
-// Greek ornament component
-function GreekOrnament() {
+// Greek Key Border Pattern
+function GreekKeyBorder({ className = "", color = "#C47A2B" }: { className?: string; color?: string }) {
   return (
-    <svg className="w-24 h-6 text-brand-terracotta/60" viewBox="0 0 96 24" fill="none">
-      <path d="M0 12h36" stroke="currentColor" strokeWidth="1" />
-      <path d="M60 12h36" stroke="currentColor" strokeWidth="1" />
-      <circle cx="48" cy="12" r="6" stroke="currentColor" strokeWidth="1.5" fill="none" />
-      <circle cx="48" cy="12" r="2" fill="currentColor" />
+    <svg
+      className={className}
+      viewBox="0 0 120 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="xMidYMid slice"
+    >
+      <defs>
+        <pattern id="footerGreekKey" x="0" y="0" width="30" height="24" patternUnits="userSpaceOnUse">
+          <path
+            d="M0 20V4h4v12h8V4h4v16h-4V8H8v12H0z"
+            fill={color}
+            fillOpacity="0.2"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#footerGreekKey)" />
     </svg>
   );
 }
@@ -30,7 +43,6 @@ export function Footer() {
     if (!email) return;
 
     setIsLoading(true);
-    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setIsLoading(false);
     setEmail("");
@@ -38,29 +50,36 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-brand-black text-white relative">
+    <footer className="bg-brand-black text-white relative overflow-hidden">
       {/* Greek key border top */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-brand-terracotta/60 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-6 overflow-hidden z-10">
+        <GreekKeyBorder className="w-full h-full" />
+      </div>
 
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 py-16">
-        {/* Greek ornament at top */}
-        <div className="flex justify-center mb-12">
-          <GreekOrnament />
-        </div>
+      {/* Background orbs */}
+      <motion.div
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.05, 0.1, 0.05]
+        }}
+        transition={{ duration: 12, repeat: Infinity }}
+        className="absolute top-0 right-0 w-[400px] h-[400px] bg-brand-terracotta/20 rounded-full blur-3xl"
+      />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 py-20 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Logo & Tagline */}
-          <div className="space-y-4">
+          <div className="space-y-6">
             <Logo variant="light" />
-            <p className="text-brand-slate text-sm leading-relaxed mt-0 w-44">
+            <p className="text-white/60 text-sm leading-relaxed max-w-[200px]">
               {SITE_CONFIG.tagline}
             </p>
-            <div className="flex gap-4 mt-6">
+            <div className="flex gap-3">
               <a
                 href={`https://instagram.com/${CONTACT_INFO.instagram.replace("@", "")}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 border border-brand-terracotta/40 flex items-center justify-center text-brand-slate hover:text-brand-terracotta hover:border-brand-terracotta transition-colors"
+                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-brand-terracotta hover:bg-brand-terracotta/10 transition-all"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
@@ -70,7 +89,8 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-4 text-brand-terracotta">
+            <h4 className="font-heading text-lg font-semibold mb-6 text-white flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-brand-terracotta" />
               Quick Links
             </h4>
             <ul className="space-y-3">
@@ -78,8 +98,9 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-brand-slate hover:text-brand-terracotta transition-colors text-sm tracking-wide"
+                    className="text-white/60 hover:text-brand-terracotta transition-colors text-sm tracking-wide flex items-center gap-2 group"
                   >
+                    <span className="w-1 h-1 rounded-full bg-brand-terracotta/50 group-hover:bg-brand-terracotta transition-colors" />
                     {link.label}
                   </Link>
                 </li>
@@ -87,8 +108,9 @@ export function Footer() {
               <li>
                 <Link
                   href="#blueprint"
-                  className="text-brand-slate hover:text-brand-terracotta transition-colors text-sm tracking-wide"
+                  className="text-white/60 hover:text-brand-terracotta transition-colors text-sm tracking-wide flex items-center gap-2 group"
                 >
+                  <span className="w-1 h-1 rounded-full bg-brand-terracotta/50 group-hover:bg-brand-terracotta transition-colors" />
                   Get The Blueprint
                 </Link>
               </li>
@@ -97,32 +119,35 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-4 text-brand-terracotta">Contact</h4>
-            <ul className="space-y-3 text-sm text-brand-slate">
+            <h4 className="font-heading text-lg font-semibold mb-6 text-white flex items-center gap-2">
+              <Mail className="w-4 h-4 text-brand-terracotta" />
+              Contact
+            </h4>
+            <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
-                <div className="w-6 h-6 border border-brand-terracotta/40 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <MapPin className="h-3 w-3 text-brand-terracotta" />
+                <div className="w-8 h-8 rounded-full bg-brand-terracotta/10 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="h-4 w-4 text-brand-terracotta" />
                 </div>
-                <span>{CONTACT_INFO.address}</span>
+                <span className="text-white/60 pt-1">{CONTACT_INFO.address}</span>
               </li>
               <li className="flex items-center gap-3">
-                <div className="w-6 h-6 border border-brand-terracotta/40 flex items-center justify-center flex-shrink-0">
-                  <Mail className="h-3 w-3 text-brand-terracotta" />
+                <div className="w-8 h-8 rounded-full bg-brand-terracotta/10 flex items-center justify-center flex-shrink-0">
+                  <Mail className="h-4 w-4 text-brand-terracotta" />
                 </div>
                 <a
                   href={`mailto:${CONTACT_INFO.email}`}
-                  className="hover:text-brand-terracotta transition-colors"
+                  className="text-white/60 hover:text-brand-terracotta transition-colors"
                 >
                   {CONTACT_INFO.email}
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <div className="w-6 h-6 border border-brand-terracotta/40 flex items-center justify-center flex-shrink-0">
-                  <Phone className="h-3 w-3 text-brand-terracotta" />
+                <div className="w-8 h-8 rounded-full bg-brand-terracotta/10 flex items-center justify-center flex-shrink-0">
+                  <Phone className="h-4 w-4 text-brand-terracotta" />
                 </div>
                 <a
                   href={`tel:${CONTACT_INFO.phone}`}
-                  className="hover:text-brand-terracotta transition-colors"
+                  className="text-white/60 hover:text-brand-terracotta transition-colors"
                 >
                   {CONTACT_INFO.phone}
                 </a>
@@ -132,9 +157,12 @@ export function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-4 text-brand-terracotta">
+            <h4 className="font-heading text-lg font-semibold mb-6 text-white">
               Stay Updated
             </h4>
+            <p className="text-white/60 text-sm mb-4">
+              Get the latest updates and tips delivered to your inbox.
+            </p>
 
             <form onSubmit={handleNewsletterSubmit} className="space-y-3">
               <Input
@@ -142,23 +170,28 @@ export function Footer() {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-white/5 border-brand-terracotta/30 text-white placeholder:text-brand-slate focus:border-brand-terracotta"
+                className="bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-brand-terracotta rounded-xl"
               />
               <Button
                 type="submit"
                 size="sm"
-                className="w-full"
+                className="w-full rounded-full"
                 disabled={isLoading}
               >
-                {isLoading ? "Subscribing..." : "Subscribe"}
+                {isLoading ? "Subscribing..." : (
+                  <>
+                    Subscribe
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </>
+                )}
               </Button>
             </form>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-brand-terracotta/20">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-brand-slate">
+        <div className="mt-16 pt-8 border-t border-white/10">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/50">
             <p>© {new Date().getFullYear()} The Forum. All rights reserved.</p>
             <div className="flex gap-6">
               <Link

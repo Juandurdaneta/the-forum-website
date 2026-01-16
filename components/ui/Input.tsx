@@ -25,7 +25,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           type={type}
           id={inputId}
           className={cn(
-            "flex h-12 w-full border border-brand-terracotta/30 bg-white px-4 py-3 text-base text-brand-black transition-all duration-200",
+            "flex h-12 w-full rounded-xl border border-brand-terracotta/20 bg-white px-4 py-3 text-base text-brand-black transition-all duration-200 shadow-sm",
             "placeholder:text-brand-slate",
             "focus:outline-none focus:ring-2 focus:ring-brand-terracotta/50 focus:border-brand-terracotta",
             "disabled:cursor-not-allowed disabled:opacity-50",
