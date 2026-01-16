@@ -7,7 +7,31 @@ import { Input } from "@/components/ui/Input";
 import { Select } from "@/components/ui/Select";
 import { LEAD_MAGNET } from "@/lib/constants";
 import { toast } from "@/components/ui/Toaster";
-import { Check, FileText, Sparkles } from "lucide-react";
+import { Check, FileText, Sparkles, Download, ArrowRight } from "lucide-react";
+
+// Greek Key Border Pattern
+function GreekKeyBorder({ className = "", color = "#C47A2B" }: { className?: string; color?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 120 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="xMidYMid slice"
+    >
+      <defs>
+        <pattern id="leadMagnetGreekKey" x="0" y="0" width="30" height="24" patternUnits="userSpaceOnUse">
+          <path
+            d="M0 20V4h4v12h8V4h4v16h-4V8H8v12H0z"
+            fill={color}
+            fillOpacity="0.15"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#leadMagnetGreekKey)" />
+    </svg>
+  );
+}
 
 export function LeadMagnet() {
   const ref = useRef(null);
@@ -50,51 +74,71 @@ export function LeadMagnet() {
 
     setIsLoading(true);
     await new Promise((resolve) => setTimeout(resolve, 1500));
-    
+
     const link = document.createElement("a");
     link.href = "/downloads/content-blueprint.pdf";
     link.download = "The-Forum-Content-Blueprint.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    
+
     setIsLoading(false);
     setFormData({ firstName: "", email: "", contentType: "" });
     toast("Check your inbox! Your blueprint is on its way.", "success");
   };
 
   return (
-    <section id="blueprint" className="py-24 bg-brand-cream-dark relative overflow-hidden">
-      {/* Greek key border top */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-terracotta/40 to-transparent" />
+    <section id="blueprint" className="relative py-24 lg:py-32 overflow-hidden">
+      {/* Background with gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-terracotta via-brand-terracotta-dark to-brand-black" />
 
-      <div className="absolute inset-0 roman-pattern opacity-30" />
-      <div className="absolute top-0 right-0 w-96 h-96 bg-brand-terracotta/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-gold/10 rounded-full blur-3xl" />
+      {/* Greek Key Border - Top */}
+      <div className="absolute top-0 left-0 right-0 h-6 overflow-hidden z-10">
+        <GreekKeyBorder className="w-full h-full" color="#FAF5EE" />
+      </div>
 
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative" ref={ref}>
+      {/* Animated gradient orbs */}
+      <motion.div
+        animate={{
+          scale: [1, 1.3, 1],
+          opacity: [0.1, 0.2, 0.1]
+        }}
+        transition={{ duration: 10, repeat: Infinity }}
+        className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-gold/20 rounded-full blur-3xl"
+      />
+      <motion.div
+        animate={{
+          scale: [1.3, 1, 1.3],
+          opacity: [0.05, 0.15, 0.05]
+        }}
+        transition={{ duration: 12, repeat: Infinity }}
+        className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-white/10 rounded-full blur-3xl"
+      />
+
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10" ref={ref}>
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left column - Content */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center gap-2 bg-brand-terracotta/10 border border-brand-terracotta/30 px-4 py-2 mb-6">
-                <Sparkles className="w-4 h-4 text-brand-terracotta" />
-                <span className="text-sm font-medium text-brand-black tracking-wide uppercase">Free Download</span>
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+                <Sparkles className="w-4 h-4 text-brand-gold" />
+                <span className="text-sm font-medium text-white tracking-wide uppercase">Free Download</span>
               </div>
 
-              <h2 className="font-heading text-3xl md:text-4xl font-semibold text-brand-black mb-4 leading-tight">
+              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6 leading-tight">
                 {LEAD_MAGNET.title}
               </h2>
 
-              <p className="text-lg text-brand-slate mb-8 leading-relaxed">
+              <p className="text-lg text-white/80 mb-8 leading-relaxed">
                 {LEAD_MAGNET.description}
               </p>
 
-              <div className="space-y-3 mb-8">
-                <p className="font-medium text-brand-black tracking-wide">What&apos;s Inside:</p>
+              <div className="space-y-4 mb-10">
+                <p className="font-medium text-white tracking-wide">What&apos;s Inside:</p>
                 {LEAD_MAGNET.features.map((feature, index) => (
                   <motion.div
                     key={feature}
@@ -103,79 +147,107 @@ export function LeadMagnet() {
                     transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
                     className="flex items-start gap-3"
                   >
-                    <div className="w-6 h-6 border-2 border-brand-terracotta rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check className="w-3 h-3 text-brand-terracotta" />
+                    <div className="w-6 h-6 rounded-full bg-brand-gold/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check className="w-3.5 h-3.5 text-brand-gold" />
                     </div>
-                    <span className="text-brand-slate">{feature}</span>
+                    <span className="text-white/90">{feature}</span>
                   </motion.div>
                 ))}
               </div>
 
-              <div className="hidden lg:flex items-center gap-4 p-4 bg-brand-cream border border-brand-terracotta/20">
-                <div className="relative w-20 h-24 flex items-center justify-center">
-                  <div className="absolute inset-0 border-2 border-brand-terracotta/30" />
-                  <FileText className="w-10 h-10 text-brand-terracotta" />
+              {/* PDF Preview card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="hidden lg:block"
+              >
+                <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/20">
+                  <div className="flex items-center gap-4">
+                    <motion.div
+                      animate={{ y: [0, -4, 0] }}
+                      transition={{ duration: 3, repeat: Infinity }}
+                      className="w-16 h-20 bg-white rounded-xl flex items-center justify-center shadow-lg"
+                    >
+                      <FileText className="w-8 h-8 text-brand-terracotta" />
+                    </motion.div>
+                    <div>
+                      <p className="font-heading font-semibold text-white text-lg">Content Blueprint</p>
+                      <p className="text-white/60 text-sm">PDF Guide • 15 pages</p>
+                      <div className="flex items-center gap-2 mt-1">
+                        <Download className="w-3.5 h-3.5 text-brand-gold" />
+                        <span className="text-brand-gold text-xs font-medium">Instant Download</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-heading font-semibold text-brand-black">Content Blueprint</p>
-                  <p className="text-sm text-brand-slate">PDF Guide • 15 pages</p>
-                </div>
-              </div>
+              </motion.div>
             </motion.div>
 
+            {/* Right column - Form */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <form onSubmit={handleSubmit} className="relative bg-brand-cream p-8 shadow-xl border border-brand-terracotta/20">
-                {/* Greek corner decorations */}
-                <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-brand-terracotta" />
-                <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-brand-terracotta" />
-                <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-brand-terracotta" />
-                <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-brand-terracotta" />
+              <form onSubmit={handleSubmit} className="relative bg-white rounded-3xl p-8 md:p-10 shadow-2xl">
+                {/* Decorative elements */}
+                <div className="absolute -top-4 -right-4 w-24 h-24 bg-brand-gold/20 rounded-full blur-2xl" />
+                <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-brand-terracotta/20 rounded-full blur-2xl" />
 
-                <h3 className="font-heading text-2xl font-semibold text-brand-black mb-6 text-center">
-                  Get Your Free Blueprint
-                </h3>
-
-                <div className="space-y-5">
-                  <Input
-                    label="First Name"
-                    placeholder="Enter your first name"
-                    value={formData.firstName}
-                    onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                    error={errors.firstName}
-                    required
-                  />
-
-                  <Input
-                    label="Email Address"
-                    type="email"
-                    placeholder="Enter your email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    error={errors.email}
-                    required
-                  />
-
-                  <Select
-                    label="What type of content are you creating?"
-                    options={contentTypeOptions}
-                    placeholder="Select an option"
-                    value={formData.contentType}
-                    onChange={(e) => setFormData({ ...formData, contentType: e.target.value })}
-                    error={errors.contentType}
-                    required
-                  />
-
-                  <Button type="submit" size="lg" className="w-full" disabled={isLoading}>
-                    {isLoading ? "Sending..." : "Send Me The Blueprint"}
-                  </Button>
-
-                  <p className="text-xs text-brand-slate text-center">
-                    {LEAD_MAGNET.disclaimer}
+                <div className="relative">
+                  <h3 className="font-heading text-2xl font-semibold text-brand-black mb-2 text-center">
+                    Get Your Free Blueprint
+                  </h3>
+                  <p className="text-brand-slate text-center mb-8">
+                    Join 500+ creators who&apos;ve downloaded this guide
                   </p>
+
+                  <div className="space-y-5">
+                    <Input
+                      label="First Name"
+                      placeholder="Enter your first name"
+                      value={formData.firstName}
+                      onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                      error={errors.firstName}
+                      required
+                    />
+
+                    <Input
+                      label="Email Address"
+                      type="email"
+                      placeholder="Enter your email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      error={errors.email}
+                      required
+                    />
+
+                    <Select
+                      label="What type of content are you creating?"
+                      options={contentTypeOptions}
+                      placeholder="Select an option"
+                      value={formData.contentType}
+                      onChange={(e) => setFormData({ ...formData, contentType: e.target.value })}
+                      error={errors.contentType}
+                      required
+                    />
+
+                    <Button type="submit" size="lg" className="w-full rounded-full shadow-lg" disabled={isLoading}>
+                      {isLoading ? (
+                        "Sending..."
+                      ) : (
+                        <>
+                          Send Me The Blueprint
+                          <ArrowRight className="ml-2 h-5 w-5" />
+                        </>
+                      )}
+                    </Button>
+
+                    <p className="text-xs text-brand-slate text-center pt-2">
+                      {LEAD_MAGNET.disclaimer}
+                    </p>
+                  </div>
                 </div>
               </form>
             </motion.div>
@@ -183,8 +255,10 @@ export function LeadMagnet() {
         </div>
       </div>
 
-      {/* Greek key border bottom */}
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-terracotta/40 to-transparent" />
+      {/* Greek Key Border - Bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-6 overflow-hidden z-10">
+        <GreekKeyBorder className="w-full h-full" color="#FAF5EE" />
+      </div>
     </section>
   );
 }
