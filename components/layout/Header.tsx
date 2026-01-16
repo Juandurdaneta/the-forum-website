@@ -48,16 +48,16 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "text-sm font-medium transition-colors hover:text-brand-bronze",
+                    "text-sm font-medium tracking-wide transition-colors hover:text-brand-terracotta",
                     pathname === link.href
-                      ? "text-brand-bronze"
+                      ? "text-brand-terracotta"
                       : "text-brand-black"
                   )}
                 >
                   {link.label}
                 </Link>
               ))}
-              <Button size="sm" asChild>
+              <Button size="sm" asChild className="rounded-none">
                 <Link href="#blueprint">Get The Blueprint</Link>
               </Button>
             </div>
@@ -65,7 +65,7 @@ export function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-brand-black hover:text-brand-bronze transition-colors"
+              className="md:hidden p-2 text-brand-black hover:text-brand-terracotta transition-colors"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
@@ -86,7 +86,7 @@ export function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-white pt-24 md:hidden"
+            className="fixed inset-0 z-40 bg-brand-cream pt-24 md:hidden"
           >
             <nav className="flex flex-col items-center gap-6 p-8">
               {NAV_LINKS.map((link) => (
@@ -94,16 +94,16 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "text-xl font-heading font-medium transition-colors hover:text-brand-bronze",
+                    "text-xl font-heading font-medium transition-colors hover:text-brand-terracotta",
                     pathname === link.href
-                      ? "text-brand-bronze"
+                      ? "text-brand-terracotta"
                       : "text-brand-black"
                   )}
                 >
                   {link.label}
                 </Link>
               ))}
-              <Button size="lg" className="mt-4 w-full max-w-xs" asChild>
+              <Button size="lg" className="mt-4 w-full max-w-xs rounded-none" asChild>
                 <Link href="#blueprint">Get The Blueprint</Link>
               </Button>
             </nav>

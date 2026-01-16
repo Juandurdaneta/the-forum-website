@@ -6,20 +6,20 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-bronze focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium tracking-wide uppercase transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-terracotta focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         default:
-          "bg-brand-bronze text-white hover:bg-brand-bronze-dark hover:scale-[1.02] hover:shadow-lg btn-glow",
+          "bg-brand-terracotta text-white hover:bg-brand-terracotta-dark hover:scale-[1.02] hover:shadow-lg",
         secondary:
-          "bg-brand-peach text-brand-black hover:bg-brand-peach/80",
+          "bg-brand-cream-dark text-brand-black hover:bg-brand-cream",
         outline:
-          "border-2 border-brand-bronze text-brand-bronze hover:bg-brand-bronze hover:text-white",
+          "border-2 border-brand-terracotta text-brand-terracotta hover:bg-brand-terracotta hover:text-white",
         ghost:
-          "text-brand-black hover:bg-brand-peach/50",
+          "text-brand-black hover:bg-brand-cream-dark/50",
         link:
-          "text-brand-bronze underline-offset-4 hover:underline",
+          "text-brand-terracotta underline-offset-4 hover:underline",
       },
       size: {
         default: "h-12 px-6 py-3",

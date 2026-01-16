@@ -64,10 +64,13 @@ export function LeadMagnet() {
   };
 
   return (
-    <section id="blueprint" className="py-24 bg-brand-peach relative overflow-hidden">
+    <section id="blueprint" className="py-24 bg-brand-cream-dark relative overflow-hidden">
+      {/* Greek key border top */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-terracotta/40 to-transparent" />
+
       <div className="absolute inset-0 roman-pattern opacity-30" />
-      <div className="absolute top-0 right-0 w-96 h-96 bg-brand-bronze/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-white/30 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-brand-terracotta/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-gold/10 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative" ref={ref}>
         <div className="max-w-6xl mx-auto">
@@ -77,9 +80,9 @@ export function LeadMagnet() {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center gap-2 bg-white/60 rounded-full px-4 py-2 mb-6">
-                <Sparkles className="w-4 h-4 text-brand-bronze" />
-                <span className="text-sm font-medium text-brand-black">Free Download</span>
+              <div className="inline-flex items-center gap-2 bg-brand-terracotta/10 border border-brand-terracotta/30 px-4 py-2 mb-6">
+                <Sparkles className="w-4 h-4 text-brand-terracotta" />
+                <span className="text-sm font-medium text-brand-black tracking-wide uppercase">Free Download</span>
               </div>
 
               <h2 className="font-heading text-3xl md:text-4xl font-semibold text-brand-black mb-4 leading-tight">
@@ -91,7 +94,7 @@ export function LeadMagnet() {
               </p>
 
               <div className="space-y-3 mb-8">
-                <p className="font-medium text-brand-black">What&apos;s Inside:</p>
+                <p className="font-medium text-brand-black tracking-wide">What&apos;s Inside:</p>
                 {LEAD_MAGNET.features.map((feature, index) => (
                   <motion.div
                     key={feature}
@@ -100,17 +103,18 @@ export function LeadMagnet() {
                     transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
                     className="flex items-start gap-3"
                   >
-                    <div className="w-5 h-5 rounded-full bg-brand-bronze flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check className="w-3 h-3 text-white" />
+                    <div className="w-6 h-6 border-2 border-brand-terracotta rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check className="w-3 h-3 text-brand-terracotta" />
                     </div>
                     <span className="text-brand-slate">{feature}</span>
                   </motion.div>
                 ))}
               </div>
 
-              <div className="hidden lg:flex items-center gap-4 p-4 bg-white/50 rounded-xl">
-                <div className="w-20 h-24 bg-brand-bronze/10 rounded-lg flex items-center justify-center">
-                  <FileText className="w-10 h-10 text-brand-bronze" />
+              <div className="hidden lg:flex items-center gap-4 p-4 bg-brand-cream border border-brand-terracotta/20">
+                <div className="relative w-20 h-24 flex items-center justify-center">
+                  <div className="absolute inset-0 border-2 border-brand-terracotta/30" />
+                  <FileText className="w-10 h-10 text-brand-terracotta" />
                 </div>
                 <div>
                   <p className="font-heading font-semibold text-brand-black">Content Blueprint</p>
@@ -124,8 +128,14 @@ export function LeadMagnet() {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 shadow-xl">
-                <h3 className="font-heading text-2xl font-semibold text-brand-black mb-6">
+              <form onSubmit={handleSubmit} className="relative bg-brand-cream p-8 shadow-xl border border-brand-terracotta/20">
+                {/* Greek corner decorations */}
+                <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-brand-terracotta" />
+                <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-brand-terracotta" />
+                <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-brand-terracotta" />
+                <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-brand-terracotta" />
+
+                <h3 className="font-heading text-2xl font-semibold text-brand-black mb-6 text-center">
                   Get Your Free Blueprint
                 </h3>
 
@@ -172,6 +182,9 @@ export function LeadMagnet() {
           </div>
         </div>
       </div>
+
+      {/* Greek key border bottom */}
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-terracotta/40 to-transparent" />
     </section>
   );
 }

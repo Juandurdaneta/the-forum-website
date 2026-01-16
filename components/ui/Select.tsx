@@ -28,8 +28,8 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           <select
             id={selectId}
             className={cn(
-              "flex h-12 w-full appearance-none rounded-lg border border-border bg-white px-4 py-3 pr-10 text-base text-brand-black transition-all duration-200",
-              "focus:outline-none focus:ring-2 focus:ring-brand-bronze focus:border-transparent",
+              "flex h-12 w-full appearance-none border border-brand-terracotta/30 bg-white px-4 py-3 pr-10 text-base text-brand-black transition-all duration-200",
+              "focus:outline-none focus:ring-2 focus:ring-brand-terracotta/50 focus:border-brand-terracotta",
               "disabled:cursor-not-allowed disabled:opacity-50",
               error && "border-red-500 focus:ring-red-500",
               className
@@ -48,7 +48,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
               </option>
             ))}
           </select>
-          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-brand-slate pointer-events-none" />
+          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-brand-terracotta pointer-events-none" />
         </div>
         {error && <p className="mt-1.5 text-sm text-red-500">{error}</p>}
       </div>

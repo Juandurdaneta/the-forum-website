@@ -9,6 +9,18 @@ import { Instagram, Mail, Phone, MapPin } from "lucide-react";
 import { toast } from "@/components/ui/Toaster";
 import * as React from "react";
 
+// Greek ornament component
+function GreekOrnament() {
+  return (
+    <svg className="w-24 h-6 text-brand-terracotta/60" viewBox="0 0 96 24" fill="none">
+      <path d="M0 12h36" stroke="currentColor" strokeWidth="1" />
+      <path d="M60 12h36" stroke="currentColor" strokeWidth="1" />
+      <circle cx="48" cy="12" r="6" stroke="currentColor" strokeWidth="1.5" fill="none" />
+      <circle cx="48" cy="12" r="2" fill="currentColor" />
+    </svg>
+  );
+}
+
 export function Footer() {
   const [email, setEmail] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
@@ -16,7 +28,7 @@ export function Footer() {
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    
+
     setIsLoading(true);
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -26,8 +38,16 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-brand-black text-white">
+    <footer className="bg-brand-black text-white relative">
+      {/* Greek key border top */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-brand-terracotta/60 to-transparent" />
+
       <div className="container mx-auto px-4 md:px-6 lg:px-8 py-16">
+        {/* Greek ornament at top */}
+        <div className="flex justify-center mb-12">
+          <GreekOrnament />
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Logo & Tagline */}
           <div className="space-y-4">
@@ -40,7 +60,7 @@ export function Footer() {
                 href={`https://instagram.com/${CONTACT_INFO.instagram.replace("@", "")}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-brand-slate hover:text-brand-bronze transition-colors"
+                className="w-10 h-10 border border-brand-terracotta/40 flex items-center justify-center text-brand-slate hover:text-brand-terracotta hover:border-brand-terracotta transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
@@ -50,7 +70,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-4">
+            <h4 className="font-heading text-lg font-semibold mb-4 text-brand-terracotta">
               Quick Links
             </h4>
             <ul className="space-y-3">
@@ -58,7 +78,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-brand-slate hover:text-brand-bronze transition-colors text-sm"
+                    className="text-brand-slate hover:text-brand-terracotta transition-colors text-sm tracking-wide"
                   >
                     {link.label}
                   </Link>
@@ -67,7 +87,7 @@ export function Footer() {
               <li>
                 <Link
                   href="#blueprint"
-                  className="text-brand-slate hover:text-brand-bronze transition-colors text-sm"
+                  className="text-brand-slate hover:text-brand-terracotta transition-colors text-sm tracking-wide"
                 >
                   Get The Blueprint
                 </Link>
@@ -77,26 +97,32 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-4">Contact</h4>
+            <h4 className="font-heading text-lg font-semibold mb-4 text-brand-terracotta">Contact</h4>
             <ul className="space-y-3 text-sm text-brand-slate">
-              <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
+              <li className="flex items-start gap-3">
+                <div className="w-6 h-6 border border-brand-terracotta/40 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <MapPin className="h-3 w-3 text-brand-terracotta" />
+                </div>
                 <span>{CONTACT_INFO.address}</span>
               </li>
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 flex-shrink-0" />
+              <li className="flex items-center gap-3">
+                <div className="w-6 h-6 border border-brand-terracotta/40 flex items-center justify-center flex-shrink-0">
+                  <Mail className="h-3 w-3 text-brand-terracotta" />
+                </div>
                 <a
                   href={`mailto:${CONTACT_INFO.email}`}
-                  className="hover:text-brand-bronze transition-colors"
+                  className="hover:text-brand-terracotta transition-colors"
                 >
                   {CONTACT_INFO.email}
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 flex-shrink-0" />
+              <li className="flex items-center gap-3">
+                <div className="w-6 h-6 border border-brand-terracotta/40 flex items-center justify-center flex-shrink-0">
+                  <Phone className="h-3 w-3 text-brand-terracotta" />
+                </div>
                 <a
                   href={`tel:${CONTACT_INFO.phone}`}
-                  className="hover:text-brand-bronze transition-colors"
+                  className="hover:text-brand-terracotta transition-colors"
                 >
                   {CONTACT_INFO.phone}
                 </a>
@@ -106,17 +132,17 @@ export function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-4">
+            <h4 className="font-heading text-lg font-semibold mb-4 text-brand-terracotta">
               Stay Updated
             </h4>
-           
+
             <form onSubmit={handleNewsletterSubmit} className="space-y-3">
               <Input
                 type="email"
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-white/10 border-white/20 text-white placeholder:text-brand-slate"
+                className="bg-white/5 border-brand-terracotta/30 text-white placeholder:text-brand-slate focus:border-brand-terracotta"
               />
               <Button
                 type="submit"
@@ -131,19 +157,19 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-white/10">
+        <div className="mt-16 pt-8 border-t border-brand-terracotta/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-brand-slate">
             <p>© {new Date().getFullYear()} The Forum. All rights reserved.</p>
             <div className="flex gap-6">
               <Link
                 href="/privacy"
-                className="hover:text-brand-bronze transition-colors"
+                className="hover:text-brand-terracotta transition-colors tracking-wide"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/terms"
-                className="hover:text-brand-bronze transition-colors"
+                className="hover:text-brand-terracotta transition-colors tracking-wide"
               >
                 Terms of Service
               </Link>

@@ -1,23 +1,30 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand Colors - Golden Caramel Palette */
+  /* Brand Colors - Greek/Classical Palette */
   --color-brand-black: #2C2416;
-  --color-brand-slate: #8B7355;
-  --color-brand-peach: #E8D4B8;
-  --color-brand-bronze: #C4914A;
-  --color-brand-bronze-dark: #A67B3D;
-  --color-brand-bronze-light: #D4A55A;
-  --color-brand-peach-light: #F5EBE0;
-  --color-brand-cream: #FFFEF9;
-  --color-brand-gold: #DAA520;
+  --color-brand-slate: #7A6B5A;
+  --color-brand-terracotta: #C47A2B;
+  --color-brand-terracotta-dark: #A86620;
+  --color-brand-terracotta-light: #D4944A;
+  --color-brand-cream: #FAF5EE;
+  --color-brand-cream-dark: #F0E6D8;
+  --color-brand-gold: #D4A456;
+  --color-brand-gold-light: #E8C87A;
+
+  /* Legacy aliases for compatibility */
+  --color-brand-peach: #F0E6D8;
+  --color-brand-bronze: #C47A2B;
+  --color-brand-bronze-dark: #A86620;
+  --color-brand-bronze-light: #D4944A;
+  --color-brand-peach-light: #FAF5EE;
 
   /* Semantic Colors */
-  --color-background: #FFFEF9;
+  --color-background: #FAF5EE;
   --color-foreground: #2C2416;
-  --color-muted: #F5EBE0;
-  --color-muted-foreground: #8B7355;
-  --color-border: #E8D4B8;
+  --color-muted: #F0E6D8;
+  --color-muted-foreground: #7A6B5A;
+  --color-border: #E5D9C8;
 
   /* Fonts */
   --font-heading: "Cormorant Garamond", Georgia, "Times New Roman", serif;
@@ -168,9 +175,118 @@
   background: linear-gradient(90deg, transparent, var(--color-brand-peach), transparent);
 }
 
-/* Decorative Roman pattern */
+/* Decorative Greek/Roman pattern - subtle background texture */
 .roman-pattern {
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0L40 20L20 40L0 20L20 0z' fill='%23C4914A' fill-opacity='0.05'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L45 15L30 30L15 15L30 0z' fill='%23C47A2B' fill-opacity='0.03'/%3E%3Cpath d='M0 30L15 45L0 60L-15 45L0 30z' fill='%23C47A2B' fill-opacity='0.02'/%3E%3Cpath d='M60 30L75 45L60 60L45 45L60 30z' fill='%23C47A2B' fill-opacity='0.02'/%3E%3C/svg%3E");
+}
+
+/* Greek Meander/Key Pattern - Horizontal border */
+.greek-meander {
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='20' viewBox='0 0 40 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10h10v-10h10v10h-10v10h-10v-10zm20 0h10v-10h10v10h-10v10h-10v-10z' fill='none' stroke='%23C47A2B' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  height: 20px;
+}
+
+/* Greek Key Border - for cards and sections */
+.greek-border {
+  position: relative;
+}
+
+.greek-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 3px solid var(--color-brand-terracotta);
+  pointer-events: none;
+}
+
+.greek-border::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--color-brand-terracotta);
+  pointer-events: none;
+}
+
+/* Greek Medallion style - circular border with Greek key pattern */
+.greek-medallion {
+  position: relative;
+  border-radius: 50%;
+  padding: 1rem;
+}
+
+.greek-medallion::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 3px solid var(--color-brand-terracotta);
+  border-radius: 50%;
+}
+
+.greek-medallion::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 2px solid var(--color-brand-terracotta);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+/* Greek section divider */
+.greek-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 0;
+}
+
+.greek-divider::before,
+.greek-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-brand-terracotta), transparent);
+}
+
+/* Greek ornament - decorative element */
+.greek-ornament {
+  width: 40px;
+  height: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='18' fill='none' stroke='%23C47A2B' stroke-width='2'/%3E%3Ccircle cx='20' cy='20' r='12' fill='none' stroke='%23C47A2B' stroke-width='1'/%3E%3Ccircle cx='20' cy='20' r='4' fill='%23C47A2B'/%3E%3C/svg%3E");
+}
+
+/* Laurel wreath decoration */
+.laurel-left,
+.laurel-right {
+  position: absolute;
+  width: 60px;
+  height: 120px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+}
+
+/* Terracotta background variation */
+.bg-terracotta {
+  background-color: var(--color-brand-terracotta);
+}
+
+.bg-terracotta-gradient {
+  background: linear-gradient(135deg, var(--color-brand-terracotta), var(--color-brand-terracotta-dark));
+}
+
+/* Gold accent text */
+.text-gold {
+  color: var(--color-brand-gold);
+}
+
+/* Updated gradient text for Greek theme */
+.gradient-text-greek {
+  background: linear-gradient(135deg, var(--color-brand-terracotta), var(--color-brand-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Toast styles */
