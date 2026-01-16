@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
-import { MeanderBorder } from "@/components/ui/MeanderPattern";
+import { GreekKeyBorder } from "@/components/ui/MeanderPattern";
 import { COMMUNITY } from "@/lib/constants";
 import { Users, Repeat, MessageSquare, Star, Quote, ArrowRight } from "lucide-react";
 
@@ -27,7 +27,7 @@ export function Community() {
 
       {/* Greek Key Border - Top */}
       <div className="absolute top-0 left-0 right-0 h-6 overflow-hidden z-10">
-        <MeanderBorder className="w-full h-full" id="communityMeander" />
+        <GreekKeyBorder className="w-full h-full" id="communityMeander" />
       </div>
 
       {/* Animated gradient orbs */}
@@ -184,7 +184,7 @@ export function Community() {
 
       {/* Greek Key Border - Bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-6 overflow-hidden z-10">
-        <MeanderBorder className="w-full h-full" id="communityMeander" />
+        <GreekKeyBorder className="w-full h-full" id="communityMeander" />
       </div>
     </section>
   );

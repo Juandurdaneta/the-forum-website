@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
-import { MeanderBorder } from "@/components/ui/MeanderPattern";
+import { GreekKeyBorder } from "@/components/ui/MeanderPattern";
 import { BEFORE_AFTER } from "@/lib/constants";
 import { X, Check, ArrowRight, Frown, Smile } from "lucide-react";
 
@@ -19,7 +19,7 @@ export function BeforeAfter() {
 
       {/* Greek Key Border - Top */}
       <div className="absolute top-0 left-0 right-0 h-6 overflow-hidden z-10">
-        <MeanderBorder className="w-full h-full" id="beforeAfterMeander" />
+        <GreekKeyBorder className="w-full h-full" id="beforeAfterMeander" />
       </div>
 
       {/* Animated gradient orbs */}
@@ -169,7 +169,7 @@ export function BeforeAfter() {
 
       {/* Greek Key Border - Bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-6 overflow-hidden z-10">
-        <MeanderBorder className="w-full h-full" id="beforeAfterMeander" />
+        <GreekKeyBorder className="w-full h-full" id="beforeAfterMeander" />
       </div>
     </section>
   );

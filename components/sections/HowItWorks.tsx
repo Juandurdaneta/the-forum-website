@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { MeanderBorder } from "@/components/ui/MeanderPattern";
+import { GreekKeyBorder } from "@/components/ui/MeanderPattern";
 import { HOW_IT_WORKS } from "@/lib/constants";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
@@ -22,7 +22,7 @@ export function HowItWorks() {
 
       {/* Greek Key Border - Top */}
       <div className="absolute top-0 left-0 right-0 h-6 overflow-hidden z-10">
-        <MeanderBorder className="w-full h-full" id="howItWorksMeander" />
+        <GreekKeyBorder className="w-full h-full" id="howItWorksMeander" />
       </div>
 
       {/* Animated gradient orbs */}
@@ -140,7 +140,7 @@ export function HowItWorks() {
 
       {/* Greek Key Border - Bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-6 overflow-hidden z-10">
-        <MeanderBorder className="w-full h-full" id="howItWorksMeander" />
+        <GreekKeyBorder className="w-full h-full" id="howItWorksMeander" />
       </div>
     </section>
   );

@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
-import { MeanderBorder } from "@/components/ui/MeanderPattern";
+import { GreekKeyBorder } from "@/components/ui/MeanderPattern";
 import { WHATS_INCLUDED } from "@/lib/constants";
 import { Mic, Wand2, Calendar, Target, Sparkles } from "lucide-react";
 import Image from "next/image";
@@ -31,7 +31,7 @@ export function WhatsIncluded() {
       {/* Greek Key Border - Top */}
       <div className="absolute top-0 left-0 right-0 h-6 bg-brand-cream overflow-hidden">
         <div className="w-full h-full flex items-center justify-center">
-          <MeanderBorder className="w-full h-full" id="whatsIncludedMeander" opacity={0.2} />
+          <GreekKeyBorder className="w-full h-full" id="whatsIncludedMeander" opacity={0.2} />
         </div>
       </div>
 
@@ -135,7 +135,7 @@ export function WhatsIncluded() {
       {/* Greek Key Border - Bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-6 bg-brand-cream overflow-hidden">
         <div className="w-full h-full flex items-center justify-center">
-          <MeanderBorder className="w-full h-full" id="whatsIncludedMeander" opacity={0.2} />
+          <GreekKeyBorder className="w-full h-full" id="whatsIncludedMeander" opacity={0.2} />
         </div>
       </div>
     </section>

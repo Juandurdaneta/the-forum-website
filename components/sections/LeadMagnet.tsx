@@ -3,7 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
-import { MeanderBorder } from "@/components/ui/MeanderPattern";
+import { GreekKeyBorder } from "@/components/ui/MeanderPattern";
 import { Input } from "@/components/ui/Input";
 import { Select } from "@/components/ui/Select";
 import { LEAD_MAGNET } from "@/lib/constants";
@@ -71,7 +71,7 @@ export function LeadMagnet() {
 
       {/* Greek Key Border - Top */}
       <div className="absolute top-0 left-0 right-0 h-6 overflow-hidden z-10">
-        <MeanderBorder className="w-full h-full" id="leadMagnetMeander" strokeColor="#FAF5EE" />
+        <GreekKeyBorder className="w-full h-full" id="leadMagnetMeander" strokeColor="#FAF5EE" />
       </div>
 
       {/* Animated gradient orbs */}
@@ -234,7 +234,7 @@ export function LeadMagnet() {
 
       {/* Greek Key Border - Bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-6 overflow-hidden z-10">
-        <MeanderBorder className="w-full h-full" id="leadMagnetMeander" strokeColor="#FAF5EE" />
+        <GreekKeyBorder className="w-full h-full" id="leadMagnetMeander" strokeColor="#FAF5EE" />
       </div>
     </section>
   );

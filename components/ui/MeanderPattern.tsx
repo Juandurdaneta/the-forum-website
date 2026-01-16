@@ -3,25 +3,24 @@
 interface MeanderPatternProps {
   className?: string;
   strokeColor?: string;
-  fillColor?: string;
   opacity?: number;
   id?: string;
 }
 
 /**
- * Art Deco Meander Border Pattern - matches the branding kit
- * A flowing, curved interlocking loop pattern with concentric U-shapes
+ * Classic Greek Key (Meander) Border Pattern
+ * Traditional angular interlocking rectangular spiral design
  */
 export function MeanderBorder({
   className = "",
   strokeColor = "#C47A2B",
-  opacity = 0.35,
-  id = "meanderBorder"
+  opacity = 0.4,
+  id = "greekKeyBorder"
 }: MeanderPatternProps) {
   return (
     <svg
       className={className}
-      viewBox="0 0 320 40"
+      viewBox="0 0 400 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid slice"
@@ -35,43 +34,9 @@ export function MeanderBorder({
           height="40"
           patternUnits="userSpaceOnUse"
         >
-          {/* Outermost U-shape */}
+          {/* Classic Greek Key meander - single tile */}
           <path
-            d="M0 0 L0 28 Q0 38 10 38 L30 38 Q40 38 40 28 L40 0"
-            stroke={strokeColor}
-            strokeWidth="1"
-            fill="none"
-            opacity={opacity}
-          />
-          {/* Second U-shape */}
-          <path
-            d="M5 0 L5 25 Q5 33 12 33 L28 33 Q35 33 35 25 L35 0"
-            stroke={strokeColor}
-            strokeWidth="1"
-            fill="none"
-            opacity={opacity}
-          />
-          {/* Third U-shape */}
-          <path
-            d="M10 0 L10 22 Q10 28 15 28 L25 28 Q30 28 30 22 L30 0"
-            stroke={strokeColor}
-            strokeWidth="1"
-            fill="none"
-            opacity={opacity}
-          />
-          {/* Innermost U-shape */}
-          <path
-            d="M15 0 L15 18 Q15 23 20 23 Q25 23 25 18 L25 0"
-            stroke={strokeColor}
-            strokeWidth="1"
-            fill="none"
-            opacity={opacity}
-          />
-          {/* Bottom connecting dot */}
-          <circle
-            cx="20"
-            cy="39"
-            r="1.5"
+            d="M0 0 h40 v10 h-30 v10 h20 v-10 h-10 v-5 h15 v15 h-25 v-15 h5 v5 h-5 v10 h-10 v-20 z"
             fill={strokeColor}
             opacity={opacity}
           />
@@ -83,20 +48,19 @@ export function MeanderBorder({
 }
 
 /**
- * Full Meander Pattern for larger areas
- * Multiple rows of the interlocking loop pattern
+ * Greek Key Pattern - Stroke version
+ * Clean line-based Greek key meander for borders
  */
-export function MeanderPattern({
+export function GreekKeyBorder({
   className = "",
-  strokeColor = "#FAF5EE",
-  fillColor = "transparent",
-  opacity = 0.3,
-  id = "meanderPattern"
+  strokeColor = "#C47A2B",
+  opacity = 0.5,
+  id = "greekKey"
 }: MeanderPatternProps) {
   return (
     <svg
       className={className}
-      viewBox="0 0 240 80"
+      viewBox="0 0 480 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid slice"
@@ -106,54 +70,77 @@ export function MeanderPattern({
           id={id}
           x="0"
           y="0"
-          width="50"
-          height="50"
+          width="32"
+          height="32"
           patternUnits="userSpaceOnUse"
         >
-          {/* Outermost U-shape */}
+          {/* Greek Key tile - stroke based */}
           <path
-            d="M0 0 L0 35 Q0 48 15 48 L35 48 Q50 48 50 35 L50 0"
+            d="M0 4 H28 V20 H12 V12 H20 V4"
             stroke={strokeColor}
-            strokeWidth="1.5"
+            strokeWidth="2.5"
             fill="none"
             opacity={opacity}
+            strokeLinecap="square"
           />
-          {/* Second U-shape */}
           <path
-            d="M7 0 L7 30 Q7 40 18 40 L32 40 Q43 40 43 30 L43 0"
+            d="M32 28 H4 V12 H20 V20 H12 V28"
             stroke={strokeColor}
-            strokeWidth="1.5"
+            strokeWidth="2.5"
             fill="none"
             opacity={opacity}
-          />
-          {/* Third U-shape */}
-          <path
-            d="M14 0 L14 25 Q14 32 22 32 L28 32 Q36 32 36 25 L36 0"
-            stroke={strokeColor}
-            strokeWidth="1.5"
-            fill="none"
-            opacity={opacity}
-          />
-          {/* Innermost U-shape */}
-          <path
-            d="M21 0 L21 18 Q21 24 25 24 Q29 24 29 18 L29 0"
-            stroke={strokeColor}
-            strokeWidth="1.5"
-            fill="none"
-            opacity={opacity}
-          />
-          {/* Bottom connecting dot */}
-          <circle
-            cx="25"
-            cy="49"
-            r="2"
-            fill={strokeColor}
-            opacity={opacity}
+            strokeLinecap="square"
           />
         </pattern>
       </defs>
-      <rect width="100%" height="100%" fill={fillColor} />
       <rect width="100%" height="100%" fill={`url(#${id})`} />
     </svg>
   );
 }
+
+/**
+ * Simple Greek Key Border - Single line version
+ * Minimalist meander pattern for subtle decoration
+ */
+export function SimpleGreekKey({
+  className = "",
+  strokeColor = "#C47A2B",
+  opacity = 0.35,
+  id = "simpleGreekKey"
+}: MeanderPatternProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 400 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="xMidYMid slice"
+    >
+      <defs>
+        <pattern
+          id={id}
+          x="0"
+          y="0"
+          width="24"
+          height="24"
+          patternUnits="userSpaceOnUse"
+        >
+          {/* Simplified Greek key - single continuous line */}
+          <path
+            d="M0 2 H22 V14 H10 V8 H16 V2 M24 22 H2 V10 H14 V16 H8 V22"
+            stroke={strokeColor}
+            strokeWidth="2"
+            fill="none"
+            opacity={opacity}
+            strokeLinecap="square"
+            strokeLinejoin="miter"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill={`url(#${id})`} />
+    </svg>
+  );
+}
+
+// Re-export GreekKeyBorder as default pattern
+export { GreekKeyBorder as MeanderPattern };

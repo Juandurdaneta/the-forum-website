@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Logo } from "./Logo";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
-import { MeanderBorder } from "@/components/ui/MeanderPattern";
+import { GreekKeyBorder } from "@/components/ui/MeanderPattern";
 import { SITE_CONFIG, NAV_LINKS, CONTACT_INFO } from "@/lib/constants";
 import { Instagram, Mail, Phone, MapPin, ArrowRight, Sparkles } from "lucide-react";
 import { toast } from "@/components/ui/Toaster";
@@ -30,7 +30,7 @@ export function Footer() {
     <footer className="bg-brand-black text-white relative overflow-hidden">
       {/* Greek key border top */}
       <div className="absolute top-0 left-0 right-0 h-6 overflow-hidden z-10">
-        <MeanderBorder className="w-full h-full" id="footerMeander" />
+        <GreekKeyBorder className="w-full h-full" id="footerMeander" />
       </div>
 
       {/* Background orbs */}

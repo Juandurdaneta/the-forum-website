@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
-import { MeanderBorder } from "@/components/ui/MeanderPattern";
+import { GreekKeyBorder } from "@/components/ui/MeanderPattern";
 import { FINAL_CTA } from "@/lib/constants";
 import { ArrowRight, Eye, Sparkles } from "lucide-react";
 
@@ -19,7 +19,7 @@ export function FinalCTA() {
 
       {/* Greek key border top */}
       <div className="absolute top-0 left-0 right-0 h-6 overflow-hidden z-10">
-        <MeanderBorder className="w-full h-full" id="finalCtaMeander" />
+        <GreekKeyBorder className="w-full h-full" id="finalCtaMeander" />
       </div>
 
       {/* Animated gradient orbs */}
@@ -133,7 +133,7 @@ export function FinalCTA() {
 
       {/* Greek key border bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-6 overflow-hidden z-10">
-        <MeanderBorder className="w-full h-full" id="finalCtaMeander" />
+        <GreekKeyBorder className="w-full h-full" id="finalCtaMeander" />
       </div>
     </section>
   );
