@@ -18,7 +18,7 @@ export function BeforeAfter() {
       <div className="absolute inset-0 bg-gradient-to-b from-brand-cream via-white to-brand-cream" />
 
       {/* Greek Key Border - Top */}
-      <div className="absolute top-0 left-0 right-0 h-6 overflow-hidden z-10">
+      <div className="absolute top-0 left-0 right-0 h-10 overflow-hidden z-10">
         <GreekKeyBorder className="w-full h-full" id="beforeAfterMeander" />
       </div>
 
@@ -168,7 +168,7 @@ export function BeforeAfter() {
       </div>
 
       {/* Greek Key Border - Bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-6 overflow-hidden z-10">
+      <div className="absolute bottom-0 left-0 right-0 h-10 overflow-hidden z-10">
         <GreekKeyBorder className="w-full h-full" id="beforeAfterMeander" />
       </div>
     </section>

@@ -44,11 +44,6 @@ export function Hero() {
         className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-brand-terracotta/10 rounded-full blur-3xl"
       />
 
-      {/* Greek Key Border - Top */}
-      <div className="absolute top-0 left-0 right-0 h-6 overflow-hidden z-20">
-        <GreekKeyBorder className="w-full h-full" id="heroMeander" />
-      </div>
-
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10 pt-28 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           {/* Left Column - Content */}
@@ -233,7 +228,7 @@ export function Hero() {
       </div>
 
       {/* Greek Key Border - Bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-6 overflow-hidden z-20">
+      <div className="absolute bottom-0 left-0 right-0 h-10 overflow-hidden z-20">
         <GreekKeyBorder className="w-full h-full" id="heroMeander" />
       </div>
 

@@ -70,7 +70,7 @@ export function LeadMagnet() {
       <div className="absolute inset-0 bg-gradient-to-br from-brand-terracotta via-brand-terracotta-dark to-brand-black" />
 
       {/* Greek Key Border - Top */}
-      <div className="absolute top-0 left-0 right-0 h-6 overflow-hidden z-10">
+      <div className="absolute top-0 left-0 right-0 h-10 overflow-hidden z-10">
         <GreekKeyBorder className="w-full h-full" id="leadMagnetMeander" strokeColor="#FAF5EE" />
       </div>
 
@@ -233,7 +233,7 @@ export function LeadMagnet() {
       </div>
 
       {/* Greek Key Border - Bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-6 overflow-hidden z-10">
+      <div className="absolute bottom-0 left-0 right-0 h-10 overflow-hidden z-10">
         <GreekKeyBorder className="w-full h-full" id="leadMagnetMeander" strokeColor="#FAF5EE" />
       </div>
     </section>

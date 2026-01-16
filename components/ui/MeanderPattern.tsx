@@ -9,8 +9,7 @@ interface MeanderPatternProps {
 
 /**
  * Classic Greek Key (Meander) Border Pattern
- * Based on the ancient-greek-meander-1.svg from FreeSVG
- * Traditional filled angular interlocking rectangular spiral design
+ * Uses the greek-meander-border.svg - cropped version of ancient-greek-meander-1.svg
  */
 export function GreekKeyBorder({
   className = "",
@@ -19,48 +18,23 @@ export function GreekKeyBorder({
   id = "greekKey"
 }: MeanderPatternProps) {
   return (
-    <svg
-      className={className}
-      viewBox="0 0 480 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="xMidYMid slice"
+    <div
+      className={`${className} relative overflow-hidden`}
+      style={{ opacity }}
     >
-      <defs>
-        <pattern
-          id={id}
-          x="0"
-          y="0"
-          width="20"
-          height="24"
-          patternUnits="userSpaceOnUse"
-        >
-          {/* Classic Greek Meander (Key) Pattern */}
-          {/* Top horizontal bar */}
-          <rect x="0" y="0" width="20" height="2.5" fill={strokeColor} opacity={opacity} />
-          {/* Bottom horizontal bar */}
-          <rect x="0" y="21.5" width="20" height="2.5" fill={strokeColor} opacity={opacity} />
-
-          {/* Main meander spiral shape */}
-          {/* Outer left vertical */}
-          <rect x="0" y="2.5" width="2.5" height="9.5" fill={strokeColor} opacity={opacity} />
-          {/* Top horizontal connector */}
-          <rect x="0" y="9.5" width="12.5" height="2.5" fill={strokeColor} opacity={opacity} />
-          {/* Inner right vertical (going down) */}
-          <rect x="10" y="9.5" width="2.5" height="12" fill={strokeColor} opacity={opacity} />
-          {/* Inner horizontal */}
-          <rect x="5" y="14.5" width="7.5" height="2.5" fill={strokeColor} opacity={opacity} />
-          {/* Inner left vertical */}
-          <rect x="5" y="14.5" width="2.5" height="7" fill={strokeColor} opacity={opacity} />
-
-          {/* Connector to next tile */}
-          <rect x="15" y="2.5" width="5" height="2.5" fill={strokeColor} opacity={opacity} />
-          <rect x="15" y="2.5" width="2.5" height="9.5" fill={strokeColor} opacity={opacity} />
-          <rect x="17.5" y="12" width="2.5" height="9.5" fill={strokeColor} opacity={opacity} />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill={`url(#${id})`} />
-    </svg>
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url('/patterns/greek-meander-border.svg')",
+          backgroundRepeat: "repeat-x",
+          backgroundPosition: "left center",
+          // Auto width based on height, show full pattern
+          backgroundSize: "auto 100%",
+          // Apply color using CSS filter to convert black to terracotta
+          filter: "invert(45%) sepia(60%) saturate(500%) hue-rotate(350deg) brightness(90%)"
+        }}
+      />
+    </div>
   );
 }
 

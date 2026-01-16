@@ -26,7 +26,7 @@ export function Community() {
       <div className="absolute inset-0 bg-gradient-to-br from-brand-cream via-brand-cream-dark/30 to-brand-cream" />
 
       {/* Greek Key Border - Top */}
-      <div className="absolute top-0 left-0 right-0 h-6 overflow-hidden z-10">
+      <div className="absolute top-0 left-0 right-0 h-10 overflow-hidden z-10">
         <GreekKeyBorder className="w-full h-full" id="communityMeander" />
       </div>
 
@@ -183,7 +183,7 @@ export function Community() {
       </div>
 
       {/* Greek Key Border - Bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-6 overflow-hidden z-10">
+      <div className="absolute bottom-0 left-0 right-0 h-10 overflow-hidden z-10">
         <GreekKeyBorder className="w-full h-full" id="communityMeander" />
       </div>
     </section>

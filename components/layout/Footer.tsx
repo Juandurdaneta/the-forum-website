@@ -29,7 +29,7 @@ export function Footer() {
   return (
     <footer className="bg-brand-black text-white relative overflow-hidden">
       {/* Greek key border top */}
-      <div className="absolute top-0 left-0 right-0 h-6 overflow-hidden z-10">
+      <div className="absolute top-0 left-0 right-0 h-10 overflow-hidden z-10">
         <GreekKeyBorder className="w-full h-full" id="footerMeander" />
       </div>
 
