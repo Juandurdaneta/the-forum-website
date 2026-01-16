@@ -31,7 +31,7 @@ export function WhatsIncluded() {
       {/* Greek Key Border - Top */}
       <div className="absolute top-0 left-0 right-0 h-10 bg-brand-cream overflow-hidden">
         <div className="w-full h-full flex items-center justify-center">
-          <GreekKeyBorder className="w-full h-full" id="whatsIncludedMeander" opacity={0.2} />
+          <GreekKeyBorder className="w-full h-full" id="whatsIncludedMeander" opacity={0.4} variant="dark" />
         </div>
       </div>
 
@@ -136,7 +136,7 @@ export function WhatsIncluded() {
       {/* Greek Key Border - Bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-10 bg-brand-cream overflow-hidden">
         <div className="w-full h-full flex items-center justify-center">
-          <GreekKeyBorder className="w-full h-full" id="whatsIncludedMeander" opacity={0.2} />
+          <GreekKeyBorder className="w-full h-full" id="whatsIncludedMeander" opacity={0.4} variant="dark" />
         </div>
       </div>
     </section>

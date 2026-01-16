@@ -5,18 +5,26 @@ interface MeanderPatternProps {
   strokeColor?: string;
   opacity?: number;
   id?: string;
+  variant?: "light" | "dark";
 }
 
 /**
  * Classic Greek Key (Meander) Border Pattern
  * Uses the greek-meander-border.svg - cropped version of ancient-greek-meander-1.svg
+ * variant="light" = white pattern (for dark backgrounds)
+ * variant="dark" = terracotta pattern (for light backgrounds)
  */
 export function GreekKeyBorder({
   className = "",
   strokeColor = "#C47A2B",
   opacity = 0.6,
-  id = "greekKey"
+  id = "greekKey",
+  variant = "light"
 }: MeanderPatternProps) {
+  const filter = variant === "light"
+    ? "invert(100%) brightness(100%)"
+    : "invert(45%) sepia(60%) saturate(500%) hue-rotate(350deg) brightness(90%)";
+
   return (
     <div
       className={`${className} relative overflow-hidden`}
@@ -28,10 +36,8 @@ export function GreekKeyBorder({
           backgroundImage: "url('/patterns/greek-meander-border.svg')",
           backgroundRepeat: "repeat-x",
           backgroundPosition: "left center",
-          // Auto width based on height, show full pattern
           backgroundSize: "auto 100%",
-          // Apply color using CSS filter to convert black to terracotta
-          filter: "invert(45%) sepia(60%) saturate(500%) hue-rotate(350deg) brightness(90%)"
+          filter
         }}
       />
     </div>
