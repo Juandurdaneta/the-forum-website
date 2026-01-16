@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { HERO_CONTENT } from "@/lib/constants";
 import { ArrowRight, Play, Mic, Video, Users, Sparkles } from "lucide-react";
+import Image from "next/image";
 
 // Floating feature cards for visual interest
 const floatingFeatures = [
@@ -108,7 +109,7 @@ export function Hero() {
                 variant="ghost"
                 size="lg"
                 asChild
-                className="group rounded-full border-2 border-brand-terracotta/30 hover:border-brand-terracotta hover:bg-brand-terracotta/5"
+                className="group rounded-full border-2 border-brand-black/20 hover:border-brand-black/40 hover:bg-brand-black/5"
               >
                 <Link href="#how-it-works">
                   <div className="w-10 h-10 rounded-full bg-brand-terracotta/10 flex items-center justify-center mr-3 group-hover:bg-brand-terracotta/20 transition-colors">
@@ -155,11 +156,15 @@ export function Hero() {
               {/* Studio mockup card */}
               <div className="relative bg-white rounded-3xl shadow-2xl p-8 border border-brand-terracotta/10">
                 {/* Logo/Brand */}
-                <div className="text-center mb-8">
-                  <div className="inline-flex flex-col items-center">
-                    <span className="text-xs tracking-[0.4em] text-brand-terracotta mb-1">T H E</span>
-                    <span className="font-heading text-4xl font-bold text-brand-black">FORUM</span>
-                    <div className="w-16 h-0.5 bg-brand-terracotta/30 mt-2" />
+                <div className="flex justify-center mb-4">
+                  <div className="w-[200px] h-[70px] overflow-hidden flex items-center justify-center">
+                    <Image
+                      src="/images/logo.png"
+                      alt="The Forum"
+                      width={280}
+                      height={120}
+                      className="scale-[2]"
+                    />
                   </div>
                 </div>
 
