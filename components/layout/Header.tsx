@@ -27,6 +27,10 @@ export function Header() {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
+  // Only use light/white text on home page when not scrolled (over terracotta hero)
+  const isHomePage = pathname === "/";
+  const useLightNav = !isScrolled && isHomePage;
+
   return (
     <>
       <header
@@ -39,7 +43,7 @@ export function Header() {
       >
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <nav className="flex items-center justify-between">
-            <Logo variant={isScrolled ? "dark" : "dark"} />
+            <Logo variant="dark" />
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
@@ -49,20 +53,22 @@ export function Header() {
                   href={link.href}
                   className={cn(
                     "text-sm font-medium tracking-wide transition-colors relative group",
-                    isScrolled
-                      ? "hover:text-brand-terracotta"
-                      : "hover:text-white/80",
+                    useLightNav
+                      ? "hover:text-white/80"
+                      : "hover:text-brand-terracotta",
                     pathname === link.href
-                      ? "text-brand-terracotta"
-                      : isScrolled
-                        ? "text-brand-black"
-                        : "text-white"
+                      ? useLightNav
+                        ? "text-white"
+                        : "text-brand-terracotta"
+                      : useLightNav
+                        ? "text-white"
+                        : "text-brand-black"
                   )}
                 >
                   {link.label}
                   <span className={cn(
                     "absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full",
-                    isScrolled ? "bg-brand-terracotta" : "bg-white",
+                    useLightNav ? "bg-white" : "bg-brand-terracotta",
                     pathname === link.href && "w-full"
                   )} />
                 </Link>
@@ -72,7 +78,7 @@ export function Header() {
                 asChild
                 className={cn(
                   "rounded-full shadow-md hover:shadow-lg",
-                  !isScrolled && "bg-white text-brand-terracotta hover:bg-white/90"
+                  useLightNav && "bg-white text-brand-terracotta hover:bg-white/90"
                 )}
               >
                 <Link href="#blueprint">
