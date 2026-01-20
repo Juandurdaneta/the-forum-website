@@ -48,20 +48,33 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "text-sm font-medium tracking-wide transition-colors hover:text-brand-terracotta relative group",
+                    "text-sm font-medium tracking-wide transition-colors relative group",
+                    isScrolled
+                      ? "hover:text-brand-terracotta"
+                      : "hover:text-white/80",
                     pathname === link.href
                       ? "text-brand-terracotta"
-                      : "text-brand-black"
+                      : isScrolled
+                        ? "text-brand-black"
+                        : "text-white"
                   )}
                 >
                   {link.label}
                   <span className={cn(
-                    "absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-terracotta transition-all duration-300 group-hover:w-full",
+                    "absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full",
+                    isScrolled ? "bg-brand-terracotta" : "bg-white",
                     pathname === link.href && "w-full"
                   )} />
                 </Link>
               ))}
-              <Button size="sm" asChild className="rounded-full shadow-md hover:shadow-lg">
+              <Button
+                size="sm"
+                asChild
+                className={cn(
+                  "rounded-full shadow-md hover:shadow-lg",
+                  !isScrolled && "bg-white text-brand-terracotta hover:bg-white/90"
+                )}
+              >
                 <Link href="#blueprint">
                   Get The Blueprint
                   <ArrowRight className="ml-2 h-4 w-4" />

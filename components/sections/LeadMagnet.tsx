@@ -124,8 +124,8 @@ export function LeadMagnet() {
                     transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
                     className="flex items-start gap-3"
                   >
-                    <div className="w-6 h-6 rounded-full bg-brand-gold/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check className="w-3.5 h-3.5 text-brand-gold" />
+                    <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check className="w-3.5 h-3.5 text-brand-terracotta" />
                     </div>
                     <span className="text-white/90">{feature}</span>
                   </motion.div>

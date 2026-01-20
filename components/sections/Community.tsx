@@ -140,25 +140,26 @@ export function Community() {
               </div>
             </motion.div>
 
-            <div className="relative bg-gradient-to-br from-brand-black via-brand-black to-brand-terracotta/20 rounded-3xl p-8 md:p-12 shadow-2xl overflow-hidden">
+            <div className="relative bg-gradient-to-br from-brand-terracotta via-brand-terracotta to-brand-terracotta-dark rounded-3xl p-8 md:p-12 shadow-2xl overflow-hidden">
               {/* Decorative orb */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-terracotta/10 rounded-full blur-3xl" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-brand-gold/20 rounded-full blur-3xl" />
 
               <blockquote className="relative z-10">
                 <p className="font-heading text-xl md:text-2xl text-white italic leading-relaxed mb-6">
                   &ldquo;{COMMUNITY.testimonial.quote}&rdquo;
                 </p>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-brand-terracotta/20 flex items-center justify-center">
-                    <span className="font-heading text-lg font-bold text-brand-terracotta">
+                  <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+                    <span className="font-heading text-lg font-bold text-white">
                       {COMMUNITY.testimonial.author.charAt(0)}
                     </span>
                   </div>
                   <cite className="not-italic">
-                    <span className="text-brand-terracotta font-medium block">
+                    <span className="text-white font-medium block">
                       {COMMUNITY.testimonial.author}
                     </span>
-                    <span className="text-white/60 text-sm">Founding Member</span>
+                    <span className="text-white/70 text-sm">Founding Member</span>
                   </cite>
                 </div>
               </blockquote>

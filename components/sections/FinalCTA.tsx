@@ -15,7 +15,7 @@ export function FinalCTA() {
   return (
     <section className="relative py-24 lg:py-32 overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-brand-black via-brand-black to-brand-terracotta/30" />
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-terracotta via-brand-terracotta-dark to-brand-terracotta" />
 
       {/* Greek key border top */}
       <div className="absolute top-0 left-0 right-0 h-10 overflow-hidden z-10">
@@ -26,18 +26,18 @@ export function FinalCTA() {
       <motion.div
         animate={{
           scale: [1, 1.3, 1],
-          opacity: [0.1, 0.2, 0.1]
+          opacity: [0.15, 0.25, 0.15]
         }}
         transition={{ duration: 10, repeat: Infinity }}
-        className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-terracotta/20 rounded-full blur-3xl"
+        className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/10 rounded-full blur-3xl"
       />
       <motion.div
         animate={{
           scale: [1.3, 1, 1.3],
-          opacity: [0.05, 0.15, 0.05]
+          opacity: [0.1, 0.2, 0.1]
         }}
         transition={{ duration: 12, repeat: Infinity }}
-        className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-gold/10 rounded-full blur-3xl"
+        className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-gold/20 rounded-full blur-3xl"
       />
 
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10" ref={ref}>
@@ -61,14 +61,16 @@ export function FinalCTA() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-6 leading-tight"
           >
-            {FINAL_CTA.title}
+            Creating Content Doesn&apos;t Have
+            <br />
+            To Be Hard
           </motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-white/70 mb-12 leading-relaxed max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-white/70 mb-12 leading-relaxed max-w-3xl mx-auto"
           >
             {FINAL_CTA.body}
           </motion.p>
@@ -121,7 +123,7 @@ export function FinalCTA() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="flex flex-wrap items-center justify-center gap-8 mt-16 text-white/50 text-sm"
           >
-            {["No contracts", "Cancel anytime", "Equipment included"].map((text, i) => (
+            {["Cancel anytime", "Equipment included"].map((text, i) => (
               <div key={i} className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-brand-terracotta" />
                 <span>{text}</span>

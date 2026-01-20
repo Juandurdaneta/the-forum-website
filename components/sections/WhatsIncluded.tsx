@@ -6,7 +6,7 @@ import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { GreekKeyBorder } from "@/components/ui/MeanderPattern";
 import { WHATS_INCLUDED } from "@/lib/constants";
-import { Mic, Wand2, Calendar, Target, Sparkles } from "lucide-react";
+import { Mic, Wand2, Calendar, Target, Sparkles, ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 const iconMap = {
@@ -65,10 +65,11 @@ export function WhatsIncluded() {
               <Button
                 size="lg"
                 asChild
-                className="bg-white text-brand-terracotta hover:bg-brand-cream border-0 shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="rounded-full bg-white text-brand-terracotta hover:bg-brand-cream border-0 shadow-xl hover:shadow-2xl transition-all duration-300"
               >
                 <Link href="#blueprint">
                   Get Started Free
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
             </div>

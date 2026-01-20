@@ -26,15 +26,23 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-brand-black text-white relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-brand-terracotta via-brand-terracotta-dark to-brand-terracotta text-white relative overflow-hidden">
       {/* Background orbs */}
       <motion.div
         animate={{
           scale: [1, 1.2, 1],
-          opacity: [0.05, 0.1, 0.05]
+          opacity: [0.1, 0.2, 0.1]
         }}
         transition={{ duration: 12, repeat: Infinity }}
-        className="absolute top-0 right-0 w-[400px] h-[400px] bg-brand-terracotta/20 rounded-full blur-3xl"
+        className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/10 rounded-full blur-3xl"
+      />
+      <motion.div
+        animate={{
+          scale: [1.2, 1, 1.2],
+          opacity: [0.1, 0.15, 0.1]
+        }}
+        transition={{ duration: 10, repeat: Infinity }}
+        className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-gold/20 rounded-full blur-3xl"
       />
 
       <div className="container mx-auto px-4 md:px-6 lg:px-8 py-20 relative z-10">
@@ -50,7 +58,7 @@ export function Footer() {
                 href={`https://instagram.com/${CONTACT_INFO.instagram.replace("@", "")}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-brand-terracotta hover:bg-brand-terracotta/10 transition-all"
+                className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white/30 transition-all"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
@@ -96,14 +104,14 @@ export function Footer() {
             </h4>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-brand-terracotta/10 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="h-4 w-4 text-brand-terracotta" />
+                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="h-4 w-4 text-white" />
                 </div>
                 <span className="text-white/60 pt-1">{CONTACT_INFO.address}</span>
               </li>
               <li className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-brand-terracotta/10 flex items-center justify-center flex-shrink-0">
-                  <Mail className="h-4 w-4 text-brand-terracotta" />
+                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <Mail className="h-4 w-4 text-white" />
                 </div>
                 <a
                   href={`mailto:${CONTACT_INFO.email}`}
@@ -113,8 +121,8 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-brand-terracotta/10 flex items-center justify-center flex-shrink-0">
-                  <Phone className="h-4 w-4 text-brand-terracotta" />
+                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <Phone className="h-4 w-4 text-white" />
                 </div>
                 <a
                   href={`tel:${CONTACT_INFO.phone}`}

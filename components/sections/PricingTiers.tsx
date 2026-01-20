@@ -81,7 +81,7 @@ export function PricingTiers() {
             Choose Your Creative Rhythm
           </h1>
           <p className="text-xl text-brand-slate">
-            All memberships include studio access, professional equipment and community access.
+            All memberships include studio access, professional equipment, and community.
           </p>
         </motion.div>
 
