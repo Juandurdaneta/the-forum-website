@@ -22,7 +22,7 @@ export const HERO_CONTENT = {
   headline: "Fort Lauderdale's Only Done-For-You Podcast & Content Studio",
   subheadline: "One membership. Infinite peace of mind. Show up to a space where everything's ready, record and walk out knowing your content is handled, every single time.",
   primaryCta: "Get The Free Content Blueprint",
-  secondaryCta: "See How The Studio Works",
+  secondaryCta: "See How It Works",
 }
 
 export const HOW_IT_WORKS = {
