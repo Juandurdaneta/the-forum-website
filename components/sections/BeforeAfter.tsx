@@ -6,7 +6,8 @@ import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { GreekKeyBorder } from "@/components/ui/MeanderPattern";
 import { BEFORE_AFTER } from "@/lib/constants";
-import { X, Check, ArrowRight, Frown, Smile } from "lucide-react";
+import { X, Check, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export function BeforeAfter() {
   const ref = useRef(null);
@@ -66,13 +67,19 @@ export function BeforeAfter() {
             className="group"
           >
             <div className="relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-brand-slate/10 h-full overflow-hidden">
-              {/* Header with icon */}
+              {/* Header with image */}
               <div className="flex items-center gap-4 mb-8">
                 <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  className="w-14 h-14 rounded-2xl bg-brand-slate/10 flex items-center justify-center"
+                  whileHover={{ scale: 1.05 }}
+                  className="w-16 h-16 rounded-2xl overflow-hidden shadow-md"
                 >
-                  <Frown className="w-7 h-7 text-brand-slate" strokeWidth={1.5} />
+                  <Image
+                    src="/images/greek_before.jpeg"
+                    alt="Before"
+                    width={64}
+                    height={64}
+                    className="w-full h-full object-cover"
+                  />
                 </motion.div>
                 <div>
                   <h3 className="font-heading text-2xl font-semibold text-brand-black">
@@ -112,13 +119,19 @@ export function BeforeAfter() {
             className="group"
           >
             <div className="relative bg-gradient-to-br from-brand-terracotta/5 via-white to-brand-terracotta/10 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-brand-terracotta/20 hover:border-brand-terracotta/40 h-full overflow-hidden">
-              {/* Header with icon */}
+              {/* Header with image */}
               <div className="flex items-center gap-4 mb-8">
                 <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-terracotta to-brand-terracotta-dark flex items-center justify-center shadow-lg"
+                  whileHover={{ scale: 1.05, rotate: 2 }}
+                  className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg ring-2 ring-brand-terracotta/20"
                 >
-                  <Smile className="w-7 h-7 text-white" strokeWidth={1.5} />
+                  <Image
+                    src="/images/greek_after.jpeg"
+                    alt="After"
+                    width={64}
+                    height={64}
+                    className="w-full h-full object-cover"
+                  />
                 </motion.div>
                 <div>
                   <h3 className="font-heading text-2xl font-semibold text-brand-black">

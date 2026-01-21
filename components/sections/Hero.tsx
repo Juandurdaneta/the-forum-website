@@ -20,9 +20,15 @@ export function Hero() {
       {/* Split background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-brand-cream" />
-        {/* Terracotta accent shape */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-terracotta hidden lg:block"
-          style={{ clipPath: "polygon(20% 0, 100% 0, 100% 100%, 0% 100%)" }}
+        {/* Terracotta accent shape with Greek background */}
+        <div
+          className="absolute top-0 right-0 w-1/2 h-full hidden lg:block"
+          style={{
+            clipPath: "polygon(20% 0, 100% 0, 100% 100%, 0% 100%)",
+            backgroundImage: "url('/images/greek_bg.jpeg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
         />
       </div>
 
